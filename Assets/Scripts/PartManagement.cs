@@ -27,19 +27,19 @@ public class PartManagement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1) && torso.activeSelf)
         {
-            pickupTorso.transform.position = new Vector3(torso.transform.position.x, torso.transform.position.y - 1.5f, torso.transform.position.z);
+            pickupTorso.transform.position = new Vector3(torso.transform.position.x, torso.transform.position.y - 0.5f, torso.transform.position.z);
             torso.SetActive(false);
             torsoCollide = false;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2) && legs.activeSelf)
+        if (Input.GetKeyDown(KeyCode.Alpha2) && !Input.GetKey(KeyCode.Tab) && legs.activeSelf)
         {
-            pickupLegs.transform.position = new Vector3(torso.transform.position.x, torso.transform.position.y - 1.5f, torso.transform.position.z);
+            pickupLegs.transform.position = new Vector3(torso.transform.position.x, torso.transform.position.y - 0.5f, torso.transform.position.z);
             legs.SetActive(!legs.activeSelf);
             legsCollide = false;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3) && arms.activeSelf)
+        if (Input.GetKeyDown(KeyCode.Alpha3) && !Input.GetKey(KeyCode.Tab) && arms.activeSelf)
         {
-            pickupArms.transform.position = new Vector3(torso.transform.position.x, torso.transform.position.y - 1.75f, torso.transform.position.z);
+            pickupArms.transform.position = new Vector3(torso.transform.position.x, torso.transform.position.y - 0.75f, torso.transform.position.z);
             arms.SetActive(!arms.activeSelf);
             armsCollide = false;
         }
