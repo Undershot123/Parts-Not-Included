@@ -36,11 +36,18 @@ public class MovementInput : MonoBehaviour {
     public float verticalVel;
     private Vector3 moveVector;
 
+	private int canJumpHash;
+	[SerializeField]
+	private float timer = 0f;
+	[SerializeField]
+	private bool canJump = true;
+
 	// Use this for initialization
 	void Start () {
 		anim = this.GetComponent<Animator> ();
 		cam = Camera.main;
 		controller = this.GetComponent<CharacterController> ();
+		canJumpHash = Animator.StringToHash("canJump");
 	}
 	
 	// Update is called once per frame
@@ -59,7 +66,25 @@ public class MovementInput : MonoBehaviour {
         moveVector = new Vector3(0, verticalVel * .2f * Time.deltaTime, 0);
         controller.Move(moveVector);
 
+		if (!canJump)
+		{
+			timer += Time.deltaTime;
+			if(timer > 1.0f)
+			{
+				anim.SetBool(canJumpHash, true);
+				canJump = true;
+				timer = 0f;
+			}
+		}
 
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			if(canJump)
+			{
+				anim.SetBool(canJumpHash, false);
+				canJump = false;
+			}
+		}
     }
 
     void PlayerMoveAndRotation() {
@@ -115,10 +140,10 @@ public class MovementInput : MonoBehaviour {
         //Physically move player
 
 		if (Speed > allowPlayerRotation) {
-			anim.SetFloat ("Blend", Speed, StartAnimTime, Time.deltaTime);
+			anim.SetFloat ("Blend", 2.0f, StartAnimTime, Time.deltaTime);
 			PlayerMoveAndRotation ();
 		} else if (Speed < allowPlayerRotation) {
-			anim.SetFloat ("Blend", Speed, StopAnimTime, Time.deltaTime);
+			anim.SetFloat ("Blend", 0f, StopAnimTime, Time.deltaTime);
 		}
 	}
 }
