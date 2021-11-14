@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6604701849763726284}
   - component: {fileID: 6604701849763726275}
   - component: {fileID: 9052353333353196648}
+  - component: {fileID: -4295304582124886828}
   m_Layer: 0
   m_Name: Foxtrot
   m_TagString: Untagged
@@ -115,3 +116,25 @@ MonoBehaviour:
   speed: 0
   armor: 0
   enemyName: Foxtrot
+--- !u!195 &-4295304582124886828
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6604701849763726274}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

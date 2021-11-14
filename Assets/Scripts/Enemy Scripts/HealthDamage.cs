@@ -11,20 +11,15 @@ public class HealthDamage : MonoBehaviour
     /// <summary>
     /// Set these values in the inspector according to each enemy type
     /// </summary>
-    public float health, attackDamage, attackTimer, speed, armor;
+    public float health, attackDamage, attackTimer, speed, armor, range;
 
     // Name of the enemy
     public string enemyName;
-
-    // The transform the enemy will navigate to
-    private Transform player;
     
     // Start is called before the first frame update
     void Start()
     {
-        // Disable when level design is ready
-        //NavMeshAgent agent = GetComponent<NavMeshAgent>();
-        //agent.destination = player.position;
+        
     }
 
     // Update is called once per frame
