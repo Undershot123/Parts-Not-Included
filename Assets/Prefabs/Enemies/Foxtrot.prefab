@@ -12,11 +12,12 @@ GameObject:
   - component: {fileID: 6604701849763726285}
   - component: {fileID: 6604701849763726284}
   - component: {fileID: 6604701849763726275}
-  - component: {fileID: 9052353333353196648}
   - component: {fileID: -4295304582124886828}
+  - component: {fileID: 9052353333353196648}
+  - component: {fileID: -7604556323960323870}
   m_Layer: 0
   m_Name: Foxtrot
-  m_TagString: Untagged
+  m_TagString: Foxtrot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 86d49fe4d16058b4a95edb786b0aad72, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,24 +99,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &9052353333353196648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6604701849763726274}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a4731fe34530f140a11d54482ca685c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 25
-  attackDamage: 0
-  attackTimer: 0
-  speed: 0
-  armor: 0
-  enemyName: Foxtrot
 --- !u!195 &-4295304582124886828
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -138,3 +121,37 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &9052353333353196648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6604701849763726274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a4731fe34530f140a11d54482ca685c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 25
+  attackDamage: 0
+  attackTimer: 0
+  speed: 0
+  armor: 0
+  range: 0
+  enemyName: Foxtrot
+--- !u!114 &-7604556323960323870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6604701849763726274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad4f29e7216f3440839dd2e2bdded59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  agressionTimer: 1
+  isActive: 1

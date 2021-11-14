@@ -62,7 +62,7 @@ public class HealthDamage : MonoBehaviour
 
     private void OnCollisionEnter(Collision other) {
         if(other.gameObject.tag == "Player") {
-            Debug.Log("<color=red>Player is attacked by a" + enemyName + "</color>");
+            Debug.Log("<color=red>Player is attacked by enemy " + enemyName + ", dealing " + attackDamage + " damage</color>");
         }
     }
 

@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 7278464522549548181}
   - component: {fileID: 7278464522549548178}
   - component: {fileID: 7278464522549548179}
-  - component: {fileID: 5295692168070267056}
   - component: {fileID: 2669012442565307395}
-  - component: {fileID: -7211403285619542663}
+  - component: {fileID: 5295692168070267056}
+  - component: {fileID: 5182684137220149191}
   m_Layer: 0
   m_Name: Alpha
-  m_TagString: Untagged
+  m_TagString: Alpha
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 74306cdf546e30146a510a19ff747856, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -99,25 +99,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5295692168070267056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7278464522549548176}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a4731fe34530f140a11d54482ca685c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 75
-  attackDamage: 10
-  attackTimer: 3
-  speed: 4
-  armor: 0
-  range: 3
-  enemyName: Alpha
 --- !u!195 &2669012442565307395
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -140,7 +121,26 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &-7211403285619542663
+--- !u!114 &5295692168070267056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7278464522549548176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a4731fe34530f140a11d54482ca685c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 75
+  attackDamage: 10
+  attackTimer: 3
+  speed: 4
+  armor: 0
+  range: 3
+  enemyName: Alpha
+--- !u!114 &5182684137220149191
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
