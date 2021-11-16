@@ -1459,7 +1459,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &539745478100655087
 Transform:
   m_ObjectHideFlags: 0
@@ -1503,7 +1503,7 @@ Animator:
   m_GameObject: {fileID: 3541754002163558908}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 82a2914d8f86c62488456950c8330e38, type: 3}
-  m_Controller: {fileID: 9100000, guid: 2b43cb7a64b5c234e8642ea03f572be3, type: 2}
+  m_Controller: {fileID: 9100000, guid: a675d5e7b5acb184c8a006773b14a07a, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1539,19 +1539,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3541754002163558908}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbb6cae19ece4b848b976432ca8b3cfb, type: 3}
+  m_Script: {fileID: 11500000, guid: 8cb5a2ac9323a6241ba018b773a02508, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  albedoList:
-  - {fileID: 2800000, guid: fb6e06c953f0d8045bc58e0f5a640f07, type: 3}
-  - {fileID: 2800000, guid: c9fd4ccfc3404b04eae3cd87e40a8e2e, type: 3}
-  - {fileID: 2800000, guid: 10c532508a2453a48aa766e69193d105, type: 3}
-  - {fileID: 2800000, guid: f61e83171850a834788a4664dbb54eae, type: 3}
-  eyeColors:
-  - {r: 0, g: 1.4666667, b: 2, a: 1}
-  - {r: 2, g: 0.25882354, b: 0.25882354, a: 1}
-  - {r: 0.72790754, g: 2, b: 0.26178014, a: 1}
-  - {r: 2, g: 0.87978274, b: 0.26178014, a: 1}
+  albedoList: []
+  eyeColors: []
   eyeState: 0
 --- !u!114 &1853804752
 MonoBehaviour:
@@ -1562,7 +1554,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3541754002163558908}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78de8d61ddf085c498bc85205bc3ed25, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f81083b388f52f4eb6d08bf8c4f75f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Velocity: 5

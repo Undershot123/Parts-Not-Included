@@ -1877,8 +1877,8 @@ GameObject:
   - component: {fileID: 539745478100655087}
   - component: {fileID: 7635726066119915157}
   - component: {fileID: 4757836856755875627}
-  - component: {fileID: 4757836856755875625}
-  - component: {fileID: 4757836856755875626}
+  - component: {fileID: 1802515897911497580}
+  - component: {fileID: 1351930853586483332}
   m_Layer: 0
   m_Name: Jammo_Player
   m_TagString: Untagged
@@ -1936,7 +1936,7 @@ Animator:
   m_GameObject: {fileID: 3541754002163558908}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 82a2914d8f86c62488456950c8330e38, type: 3}
-  m_Controller: {fileID: 9100000, guid: 51750de41edd31642bc52ef918593f81, type: 2}
+  m_Controller: {fileID: 9100000, guid: 293364f2824c12a4d973aa944fc4537f, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1963,7 +1963,7 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.98, z: 0}
---- !u!114 &4757836856755875625
+--- !u!114 &1802515897911497580
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1972,21 +1972,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3541754002163558908}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbb6cae19ece4b848b976432ca8b3cfb, type: 3}
+  m_Script: {fileID: 11500000, guid: 8cb5a2ac9323a6241ba018b773a02508, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  albedoList:
-  - {fileID: 2800000, guid: fb6e06c953f0d8045bc58e0f5a640f07, type: 3}
-  - {fileID: 2800000, guid: c9fd4ccfc3404b04eae3cd87e40a8e2e, type: 3}
-  - {fileID: 2800000, guid: 10c532508a2453a48aa766e69193d105, type: 3}
-  - {fileID: 2800000, guid: f61e83171850a834788a4664dbb54eae, type: 3}
-  eyeColors:
-  - {r: 0, g: 1.4666667, b: 2, a: 1}
-  - {r: 2, g: 0.25882354, b: 0.25882354, a: 1}
-  - {r: 0.72790754, g: 2, b: 0.26178014, a: 1}
-  - {r: 2, g: 0.87978274, b: 0.26178014, a: 1}
+  albedoList: []
+  eyeColors: []
   eyeState: 0
---- !u!114 &4757836856755875626
+--- !u!114 &1351930853586483332
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1995,7 +1987,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3541754002163558908}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caa9f165e2b4f1a4f9522501717c095d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f81083b388f52f4eb6d08bf8c4f75f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Velocity: 10
@@ -2003,7 +1995,7 @@ MonoBehaviour:
   InputZ: 0
   desiredMoveDirection: {x: 0, y: 0, z: 0}
   blockRotationPlayer: 0
-  desiredRotationSpeed: 0.3
+  desiredRotationSpeed: 0.1
   anim: {fileID: 0}
   Speed: 0
   allowPlayerRotation: 0.1
@@ -2014,7 +2006,7 @@ MonoBehaviour:
   VerticalAnimTime: 0.2
   StartAnimTime: 0.3
   StopAnimTime: 0.15
-  verticalVel: -0.5
+  verticalVel: 0
   timer: 0
   canJump: 1
 --- !u!1 &3921334144448749991

@@ -79,11 +79,11 @@ AnimatorController:
   - serializedVersion: 5
     m_Name: Move hands
     m_StateMachine: {fileID: 1988802290690307804}
-    m_Mask: {fileID: 31900000, guid: 9e3fbc13382d2ff4596dad3e22bb31c5, type: 2}
+    m_Mask: {fileID: 31900000, guid: e27d3d8c16fd92f4097aef1947f774fe, type: 2}
     m_Motions:
     - serializedVersion: 2
       m_State: {fileID: -3453559874762715465}
-      m_Motion: {fileID: 7400000, guid: 4f1a70fce74fb63459a2b7b4504199e9, type: 2}
+      m_Motion: {fileID: 0}
     m_Behaviours: []
     m_BlendingMode: 0
     m_SyncedLayerIndex: -1
@@ -148,7 +148,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 7e68e15a40db7524abeea37fabe24b92, type: 2}
+    m_Motion: {fileID: 7400000, guid: 7ff2d64bfa6bd684aa6d59bc16ad74ec, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -156,7 +156,7 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 5915fd632b76c954b947624fa70e89a4, type: 2}
+    m_Motion: {fileID: 7400000, guid: 6bd63bd93854e4c40aa2cb403e9487bf, type: 2}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -179,7 +179,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 7e68e15a40db7524abeea37fabe24b92, type: 2}
+    m_Motion: {fileID: 7400000, guid: 7ff2d64bfa6bd684aa6d59bc16ad74ec, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -187,7 +187,7 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 8a21508bb2dd73c4fbcf4686d4871dab, type: 2}
+    m_Motion: {fileID: 7400000, guid: af0c56322f0497e4cbc1a7e6bbd0ded1, type: 2}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
