@@ -16,6 +16,9 @@ public class PartManagement : MonoBehaviour
     private float legstimer = 0f;
     private bool legsCollide = false;
 
+    private bool destroying;
+    public AbilityManager ab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -76,10 +79,23 @@ public class PartManagement : MonoBehaviour
             pickupArms.GetComponent<BoxCollider>().isTrigger = true;
             armstimer = 0f;
         }
+        if (ab.armCode != 1)
+        {
+            destroying = false;
+            return;
+        }
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            destroying = true;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.layer == 8 && destroying)
+        {
+            GameObject.Destroy(other.gameObject);
+        }
         if (other.gameObject == pickupTorso)
         {
             pickupTorso.transform.position = new Vector3(pickupTorso.transform.position.x, pickupTorso.transform.position.y - 5, pickupTorso.transform.position.z);

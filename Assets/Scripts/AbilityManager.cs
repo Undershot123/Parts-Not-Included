@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class AbilityManager : MonoBehaviour
 {
-    private int armCode, legCode;
+    public int armCode, legCode;
+    public ThirdPersonMovement move;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,14 @@ public class AbilityManager : MonoBehaviour
             }
             SwitchUpgrade("arms", armCode);
         } 
+        if (Input.GetKey(KeyCode.Mouse0) && armCode == 3)
+        {
+            move.enabled = false;
+        }
+        if (Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            move.enabled = true;
+        }
     }
 
     public void SwitchUpgrade(string bodyPart, int code)
@@ -44,18 +53,23 @@ public class AbilityManager : MonoBehaviour
             {
                 case 1:
                     Debug.Log("Strong Arms Equipped");
+                    move.enabled = true;
                     break;
                 case 2:
                     Debug.Log("Extending Arms Equipped");
+                    move.enabled = true;
                     break;
                 case 3:
                     Debug.Log("Anchor Arms Equipped");
+                    
                     break;
                 case 4:
                     Debug.Log("Grappling Arms Equipped");
+                    move.enabled = true;
                     break;
                 case 5:
                     Debug.Log("Windblowing Arms Equipped");
+                    move.enabled = true;
                     break;
             }
         } else if (bodyPart == "legs")
@@ -64,12 +78,14 @@ public class AbilityManager : MonoBehaviour
             {
                 case 1:
                     Debug.Log("Speed Legs Equipped");
+                    move.speed = 8;
                     break;
                 case 2:
                     Debug.Log("Super Jump Legs Equipped");
                     break;
                 case 3:
                     Debug.Log("Sturdy Legs Equipped");
+                    move.speed = 2;
                     break;
             }
         } else
