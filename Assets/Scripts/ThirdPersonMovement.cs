@@ -42,10 +42,23 @@ public class ThirdPersonMovement : MonoBehaviour
     private Vector3 moveVector;
 
 	private int canJumpHash;
+	private int isJumpingHash;
 	[SerializeField]
 	private float timer = 0f;
 	[SerializeField]
 	private bool canJump = true;
+
+	//gravity variables
+    float gravity = -9.8f;
+    float groundedGravity = -.05f;
+
+    // jumping variables
+    bool isJumpPressed = false;
+    float initialJumpVelocity;
+    float maxJumpHeight = 2.0f;
+    float maxJumpTime = 0.75f;
+    bool isJumping = false;
+	Vector3 appliedMovement;
 
     //Copied from Jammo's original movement script
     void Start () {
@@ -53,6 +66,8 @@ public class ThirdPersonMovement : MonoBehaviour
 		cam = Camera.main;
 		controller = this.GetComponent<CharacterController> ();
 		canJumpHash = Animator.StringToHash("canJump");
+		isJumpingHash = Animator.StringToHash("isJumpingHash");
+		setupJumpVariables();
 	}
 
     // Update is called once per frame
@@ -77,23 +92,23 @@ public class ThirdPersonMovement : MonoBehaviour
         isGrounded = controller.isGrounded;
         if (isGrounded)
         {
-            verticalVel -= 0;
+            verticalVel = 0f;
         }
         else
         {
-            verticalVel -= 1;
+            verticalVel -= 1f;
         }
         moveVector = new Vector3(0, verticalVel * .2f * Time.deltaTime, 0);
         controller.Move(moveVector);
 
 		if (!canJump)
 		{
-			timer += Time.deltaTime;
-			if(timer > 1.0f)
+			//timer += Time.deltaTime;
+			if(isGrounded/*timer > 1.0f*/)
 			{
 				anim.SetBool(canJumpHash, true);
 				canJump = true;
-				timer = 0f;
+				//timer = 0f;
 			}
 		}
 
@@ -101,6 +116,7 @@ public class ThirdPersonMovement : MonoBehaviour
 		{
 			if(canJump)
 			{
+				verticalVel = initialJumpVelocity;
 				anim.SetBool(canJumpHash, false);
 				canJump = false;
 			}
@@ -166,4 +182,45 @@ public class ThirdPersonMovement : MonoBehaviour
 			anim.SetFloat ("Blend", 0f, StopAnimTime, Time.deltaTime);
 		}
 	}
+
+	void handleGravity()
+    {
+        bool isFalling = verticalVel < 0;
+        float fallMultiplier = 2.0f;
+
+        //apply proper gravity if the player is grounded or not
+        if(controller.isGrounded)
+        {
+            /* if(isJumpAnimating)
+            {
+                //set animator here
+                anim.SetBool(isJumpingHash, false);
+                isJumpAnimating = false;
+            } */
+            
+
+            verticalVel = groundedGravity;
+        }
+        else if(isFalling)
+        {
+            float previousYVelocity = moveVector.y;
+            moveVector.y = moveVector.y + (gravity * fallMultiplier * Time.deltaTime);
+            appliedMovement.y = Mathf.Max((previousYVelocity + moveVector.y) * .5f, -20.0f); //Mathf.Max() puts a cap on the deceleration speed
+            verticalVel = appliedMovement.y;
+        }
+        else{
+            float previousYVelocity = moveVector.y;
+            moveVector.y = moveVector.y + (gravity * Time.deltaTime);
+            appliedMovement.y = (previousYVelocity + moveVector.y) * .5f; 
+
+            verticalVel = appliedMovement.y;
+        }
+    }
+
+	 void setupJumpVariables()
+    {
+        float timeToApex = maxJumpTime / 2;
+        gravity = (-2 * maxJumpHeight) / Mathf.Pow(timeToApex, 2);
+        initialJumpVelocity = (2 * maxJumpHeight) / timeToApex;
+    }
 }
