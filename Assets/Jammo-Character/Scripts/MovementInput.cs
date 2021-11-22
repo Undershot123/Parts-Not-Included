@@ -41,6 +41,7 @@ public class MovementInput : MonoBehaviour {
 	private float timer = 0f;
 	[SerializeField]
 	private bool canJump = true;
+	[SerializeField] private Hacking hacking;
 
 	// Use this for initialization
 	void Start () {
@@ -63,6 +64,7 @@ public class MovementInput : MonoBehaviour {
         {
             verticalVel -= 1;
         }
+
         moveVector = new Vector3(0, verticalVel * .2f * Time.deltaTime, 0);
         controller.Move(moveVector);
 
