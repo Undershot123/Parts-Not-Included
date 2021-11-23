@@ -6,6 +6,7 @@ public class MazeBall : MonoBehaviour
 {
     [SerializeField] private Hacking hacking;
     [SerializeField] private GameObject background;
+    [SerializeField] private int thisCode;
     private Rigidbody rb;
     private Vector3 startingPos;
     // Start is called before the first frame update
@@ -18,7 +19,7 @@ public class MazeBall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hacking.inMinigame)
+        if (hacking.inMinigame && hacking.minigameCode == thisCode)
         {
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {

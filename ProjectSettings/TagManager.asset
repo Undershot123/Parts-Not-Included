@@ -11,6 +11,12 @@ TagManager:
   - Kilo
   - BodyPart
   - PlayerEyes
+  - Terminal1
+  - Terminal2
+  - Terminal3
+  - Terminal4
+  - Terminal5
+  - Terminal6
   layers:
   - Default
   - TransparentFX
