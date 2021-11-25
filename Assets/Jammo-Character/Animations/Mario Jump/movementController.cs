@@ -42,8 +42,6 @@ public class movementController : MonoBehaviour
 	public Camera cam;
 
     //Variables to store optomized setter/getter parameter IDs
-    int isWalkingHash;
-    int isRunningHash;
     int isJumpingHash;
     int canJumpHash;
 
@@ -80,8 +78,6 @@ public class movementController : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         cam = Camera.main;
 
-        isWalkingHash = Animator.StringToHash("isWalking");
-        isRunningHash = Animator.StringToHash("isRunning");
         isJumpingHash = Animator.StringToHash("isJumping");
         canJumpHash = Animator.StringToHash("canJump");
 
@@ -123,34 +119,14 @@ public class movementController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /* Debug.Log("isJumping = " + isJumping);
-        Debug.Log("isGrounded = " + controller.isGrounded);
-        Debug.Log("isJumpPressed = " + isJumpPressed); */
 
         //handleRotation();
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
 
-        if (direction.magnitude >= 0.1)
-        {
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + camera.eulerAngles.y;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-            transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
-            Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            controller.Move(moveDirection.normalized * speed * Time.deltaTime);
-            
-        }
-        InputMagnitude();
-
-        appliedMovement.x = currentMovement.x;
-        appliedMovement.z = currentMovement.z;
-        controller.Move(appliedMovement * Time.deltaTime); //removing this makes Jammo jump correctly but it drifts on the X axis
-
-        /* var camera = Camera.main;
-		var forward = cam.transform.forward;
-		var right = cam.transform.right; */
+        controller.Move(appliedMovement * Time.deltaTime); //appliedMovement only affects Jammo in the y-axis
 
         handleGravity();
         handleJump();
@@ -168,48 +144,7 @@ public class movementController : MonoBehaviour
 
         t.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(desiredMoveDirection), desiredRotationSpeed);
     }
-    void InputMagnitude() {
-        //Calculate Input Vectors
-        InputX = Input.GetAxis ("Horizontal");
-        InputZ = Input.GetAxis ("Vertical");
-
-        //anim.SetFloat ("InputZ", InputZ, VerticalAnimTime, Time.deltaTime * 2f);
-        //anim.SetFloat ("InputX", InputX, HorizontalAnimSmoothTime, Time.deltaTime * 2f);
-
-        //Calculate the Input Magnitude
-        Speed = new Vector2(InputX, InputZ).sqrMagnitude;
-
-        //Physically move player
-
-        if (Speed > allowPlayerRotation) {
-            anim.SetFloat ("Blend", 2.0f, StartAnimTime, Time.deltaTime);
-            PlayerMoveAndRotation ();
-        } else if (Speed < allowPlayerRotation) {
-            anim.SetFloat ("Blend", 0f, StopAnimTime, Time.deltaTime);
-        }
-    }
-
-    void PlayerMoveAndRotation() {
-		InputX = Input.GetAxis ("Horizontal");
-		InputZ = Input.GetAxis ("Vertical");
-
-		var camera = Camera.main;
-		var forward = cam.transform.forward;
-		var right = cam.transform.right;
-
-		forward.y = 0f;
-		right.y = 0f;
-
-		forward.Normalize ();
-		right.Normalize ();
-
-		desiredMoveDirection = forward * InputZ + right * InputX;
-
-		if (blockRotationPlayer == false) {
-			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation (desiredMoveDirection), desiredRotationSpeed);
-            controller.Move(desiredMoveDirection * Time.deltaTime * Velocity);
-		}
-	}
+    
 
     void handleRotation()
     {
