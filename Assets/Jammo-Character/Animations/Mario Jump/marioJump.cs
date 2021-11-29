@@ -3,14 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class movementController : MonoBehaviour
+public class marioJump : MonoBehaviour
 {
     //Declare reference variables
     PlayerInput playerInput;
     CharacterController controller;
-    public Transform camera;
-
-    public float speed = 4f;
 
     public float turnSmoothTime = 0.1f;
     private float turnSmoothVelocity; 
@@ -31,44 +28,37 @@ public class movementController : MonoBehaviour
     public float Velocity;
     [Space]
 
-	public float InputX;
-	public float InputZ;
-	public Vector3 desiredMoveDirection;
-	public bool blockRotationPlayer;
-	public float desiredRotationSpeed = 0.1f;
 	public Animator anim;
-	public float Speed;
-	public float allowPlayerRotation = 0.1f;
-	public Camera cam;
+
 
     //Variables to store optomized setter/getter parameter IDs
     int isJumpingHash;
     int canJumpHash;
 
     //Variables to store player input values
-    Vector2 currentMovementInput;
-    Vector3 currentMovement;
-    Vector3 currentRunMovement;
-    Vector3 appliedMovement;
-    bool isMovementPressed;
-    bool isRunPressed;
+    private Vector2 currentMovementInput;
+    private Vector3 currentMovement;
+    private Vector3 currentRunMovement;
+    private Vector3 appliedMovement;
+    private bool isMovementPressed;
+    private bool isRunPressed;
     
     //constants
-    float rotationFactorPerFrame = 15.0f;
-    float runMultiplier = 5.0f;
-    int zero = 0;
+    private float rotationFactorPerFrame = 15.0f;
+    private float runMultiplier = 5.0f;
+    private int zero = 0;
 
     //gravity variables
-    float gravity = -9.8f;
-    float groundedGravity = -.05f;
+    private float gravity = -9.8f;
+    private float groundedGravity = -.05f;
 
     // jumping variables
-    bool isJumpPressed = false;
-    float initialJumpVelocity;
-    float maxJumpHeight = 4.0f;
-    float maxJumpTime = 0.75f;
-    bool isJumping = false;
-    bool isJumpAnimating = false;
+    private bool isJumpPressed = false;
+    private float initialJumpVelocity;
+    public float maxJumpHeight = 2.0f;
+    private float maxJumpTime = 0.75f;
+    private bool isJumping = false;
+    private bool isJumpAnimating = false;
     
     
     void Awake()
@@ -76,7 +66,6 @@ public class movementController : MonoBehaviour
         playerInput = new PlayerInput();
         controller = GetComponent<CharacterController>();
         anim = GetComponentInChildren<Animator>();
-        cam = Camera.main;
 
         isJumpingHash = Animator.StringToHash("isJumping");
         canJumpHash = Animator.StringToHash("canJump");
@@ -131,18 +120,6 @@ public class movementController : MonoBehaviour
         handleGravity();
         handleJump();
         
-    }
-
-    public void RotateToCamera(Transform t)
-    {
-
-        var camera = Camera.main;
-        var forward = cam.transform.forward;
-        var right = cam.transform.right;
-
-        desiredMoveDirection = forward;
-
-        t.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(desiredMoveDirection), desiredRotationSpeed);
     }
     
 

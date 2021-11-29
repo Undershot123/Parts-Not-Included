@@ -1970,7 +1970,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3541754002163558908}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8cb5a2ac9323a6241ba018b773a02508, type: 3}
   m_Name: 
@@ -1985,7 +1985,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3541754002163558908}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f81083b388f52f4eb6d08bf8c4f75f9, type: 3}
   m_Name: 
@@ -2009,6 +2009,7 @@ MonoBehaviour:
   verticalVel: 0
   timer: 0
   canJump: 1
+  hacking: {fileID: 0}
 --- !u!1 &3921334144448749991
 GameObject:
   m_ObjectHideFlags: 0
