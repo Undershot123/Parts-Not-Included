@@ -7,6 +7,7 @@ public class ExtendingArms : MonoBehaviour
     public AbilityManager ab;
     public float armSpeed;
     [SerializeField] private GameObject arm;
+    [SerializeField] private GameObject cam;
     private bool fired = false;
     private bool canFire = true;
     private bool hitSomething = false;
@@ -43,7 +44,9 @@ public class ExtendingArms : MonoBehaviour
     {
         if (fired)
         {
-            if (canFire && Physics.Raycast(arm.transform.position, arm.transform.forward, out hit, 50f))
+            int layerMask = 1 << 2;
+            layerMask = ~layerMask;
+            if (canFire && Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 50f, layerMask))
             {
                 hitSomething = true;
                 distance = Vector3.Distance(arm.transform.position, hit.transform.position);
@@ -77,6 +80,10 @@ public class ExtendingArms : MonoBehaviour
             float currentDistance = (Time.time - startTime) * armSpeed;
             float fraction = currentDistance / distance;
             arm.transform.position = Vector3.Lerp(startPos, goalPos, fraction);
+            if (hit.collider.gameObject.layer == 25)
+            {
+                hit.collider.gameObject.GetComponent<TargetOpen>().OpenDoor();
+            }
             if (Vector3.Distance(arm.transform.position, goalPos) < 0.00001f)
             {
                 retracting = false;
