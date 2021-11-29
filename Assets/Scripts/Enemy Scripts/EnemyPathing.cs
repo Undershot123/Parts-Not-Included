@@ -27,7 +27,6 @@ public class EnemyPathing : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        agent.SetDestination(target.transform.position);
 
         healthDamage = GetComponent<HealthDamage>();
     }
@@ -38,7 +37,7 @@ public class EnemyPathing : MonoBehaviour
         // If the object is added into the target field
         if (target) {
             // If the enemy is within range, the enemy will stop to allow them to attack the player
-            if (Vector3.Distance(this.transform.position, target.transform.position) < healthDamage.range) agent.isStopped = true;
+            if (Vector3.Distance(this.transform.position, target.transform.position) < healthDamage.range || Vector3.Distance(this.transform.position, target.transform.position) > (3 * healthDamage.range)) agent.isStopped = true;
             else agent.isStopped = false;
 
             if (!agent.isStopped) {
