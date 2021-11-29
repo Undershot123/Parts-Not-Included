@@ -25,6 +25,10 @@ public class HealthDamage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (enemyName == "Player" && health <= 0f) {
+            Debug.Log("<color=red>Jammo is dead, game over.</color>");
+        }
+
         // For movement, AI pathing, and attacking
         // Potentially switch to something more efficient than Update()
         switch (enemyName) {
@@ -63,6 +67,7 @@ public class HealthDamage : MonoBehaviour
     private void OnCollisionEnter(Collision other) {
         if(other.gameObject.tag == "Player") {
             Debug.Log("<color=red>Player is attacked by enemy " + enemyName + ", dealing " + attackDamage + " damage</color>");
+            other.gameObject.GetComponent<HealthDamage>().TakeDamage(attackDamage);
         }
     }
 
