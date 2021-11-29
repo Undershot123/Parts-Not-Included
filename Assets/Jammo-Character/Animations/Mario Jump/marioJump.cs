@@ -55,8 +55,9 @@ public class marioJump : MonoBehaviour
     // jumping variables
     private bool isJumpPressed = false;
     private float initialJumpVelocity;
-    public float maxJumpHeight = 2.0f;
+    private float maxJumpHeight = 2.0f;
     private float maxJumpTime = 0.75f;
+    [SerializeField]
     private bool isJumping = false;
     private bool isJumpAnimating = false;
     
@@ -191,6 +192,12 @@ public class marioJump : MonoBehaviour
         } else if(!isJumpPressed && isJumping && controller.isGrounded){
             isJumping = false;
         }
+    }
+
+    public void changeJumpHeight(float newHeight)
+    {
+        maxJumpHeight = newHeight;
+        setupJumpVariables();
     }
 
     void OnEnable()
