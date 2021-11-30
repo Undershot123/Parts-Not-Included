@@ -55,7 +55,8 @@ public class marioJump : MonoBehaviour
     // jumping variables
     private bool isJumpPressed = false;
     private float initialJumpVelocity;
-    private float maxJumpHeight = 2.0f;
+    [SerializeField]
+    private float maxJumpHeight = 1.5f;
     private float maxJumpTime = 0.75f;
     [SerializeField]
     private bool isJumping = false;
