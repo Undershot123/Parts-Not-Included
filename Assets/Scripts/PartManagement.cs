@@ -23,7 +23,8 @@ public class PartManagement : MonoBehaviour
     //Variables for controlling Jammo's states
     private GameObject[] jammoState = new GameObject[5];
     private ThirdPersonMovement movement; //Controls movement speed and animator controller changes based on current state
-    private CharacterController colliderControl; //Controls size of collider based on current state
+    private CharacterController playerCollider; //Controls size of collider of the player based on current state
+    private CapsuleCollider capsuleCollider; //Controls size of capsule collider in this object based on current state
     private marioJump jumpControl; //Controls maxJumpHeight changes based on current state
 
     // Start is called before the first frame update
@@ -45,6 +46,12 @@ public class PartManagement : MonoBehaviour
         //Gets the animator component from the parent object to set the animation states
         movement = jammoState[0].transform.parent.GetComponent<ThirdPersonMovement>();
         jumpControl = jammoState[0].transform.parent.GetComponent<marioJump>();
+
+        //Sets an object to take control of the collider size of the overall player based on the current active Jammo state
+        playerCollider = jammoState[0].transform.parent.GetComponent<CharacterController>();
+
+        //Sets an object to take control of the collider size of this object based on the current active Jammo state
+        capsuleCollider = this.GetComponent<CapsuleCollider>();
 
         //Sets the player's jump height and movement speed based on current active state
         if(jammoState[0].activeSelf || jammoState[1].activeSelf){
@@ -301,12 +308,45 @@ public class PartManagement : MonoBehaviour
                 movement.changeMovementSpeed(2.0f); //Reduced movement speed
                 jumpControl.changeJumpHeight(0f); //Can't jump
                 jumpControl.changeAnimator(jammoState[state].GetComponent<Animator>());
+                setColliderSize(state);
                 break;
 
             default:
                 print("Invalid state");
                 break;
 
+        }
+    }
+
+    //Sets the size of the Player collider based on which Jammo state is currently active
+    private void setColliderSize(int state)
+    {
+        switch (state)
+        {
+            case 0:
+                break;
+
+            case 1:
+                break;
+            
+            case 2:
+                break;
+
+            case 3:
+                break;
+
+            case 4:
+                playerCollider.center = new Vector3(0f, -1.0f, 0f);
+                playerCollider.radius = .5f;
+                playerCollider.height = 1.0f;
+
+                capsuleCollider.center = new Vector3(0f, -.5f, 0f);
+                capsuleCollider.height = 1.0f;
+                break;
+
+            default:
+                print("Invalid state");
+                break;
         }
     }
 
