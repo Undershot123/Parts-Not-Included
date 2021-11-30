@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AbilityManager : MonoBehaviour
 {
+    [SerializeField] private marioJump jump;
     public int armCode, legCode;
     public ThirdPersonMovement move;
 
@@ -94,9 +95,12 @@ public class AbilityManager : MonoBehaviour
                 case 1:
                     Debug.Log("Speed Legs Equipped");
                     move.changeMovementSpeed(8.0f);
+                    jump.changeJumpHeight(1.5f);
                     break;
                 case 2:
                     Debug.Log("Super Jump Legs Equipped");
+                    jump.changeJumpHeight(3.0f);
+                    move.changeMovementSpeed(4.0f);
                     break;
                 default:
                     break; //nothing happens

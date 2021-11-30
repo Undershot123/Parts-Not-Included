@@ -11,7 +11,7 @@ public class Hacking : MonoBehaviour
     [SerializeField] private Camera minigameCam1, minigameCam2, minigameCam3, minigameCam4, minigameCam5, minigameCam6;
     [SerializeField] private Camera normalCam;
     [SerializeField] private ThirdPersonMovement move;
-    [SerializeField] private GameObject door1, door2, door3, door4, door4_2, door5, door5_2, door6, door6_2, door6_3;
+    [SerializeField] private GameObject door1, door2, door3, door4, door4_2, door4_3, door4_4, door4_5, door4_6, door4_7, door5, door5_2, door6, door6_2, door6_3;
     // Start is called before the first frame update
     void Start()
     {
@@ -90,15 +90,29 @@ public class Hacking : MonoBehaviour
                 case 4:
                     door4.transform.position += new Vector3(0f, -10f, 0f);
                     door4_2.transform.position += new Vector3(0f, -10f, 0f);
+                    if (SceneManager.GetActiveScene().buildIndex == 2)
+                    {
+                        door4_3.transform.position += new Vector3(0f, -10f, 0f);
+                        door4_4.transform.position += new Vector3(0f, -10f, 0f);
+                        door4_5.transform.position += new Vector3(0f, -10f, 0f);
+                        door4_6.transform.position += new Vector3(0f, -10f, 0f);
+                        door4_7.transform.position += new Vector3(0f, -10f, 0f);
+                    }
                     break;
                 case 5:
                     door5.transform.position += new Vector3(0f, -10f, 0f);
-                    door5_2.transform.position += new Vector3(0f, -10f, 0f);
+                    if (SceneManager.GetActiveScene().buildIndex == 0)
+                    {
+                        door5_2.transform.position += new Vector3(0f, -10f, 0f);
+                    }
                     break;
                 case 6:
                     door6.transform.position += new Vector3(0f, -10f, 0f);
-                    door6_2.transform.position += new Vector3(0f, -10f, 0f);
-                    door6_3.transform.position += new Vector3(0f, -10f, 0f);
+                    if (SceneManager.GetActiveScene().buildIndex == 0)
+                    {
+                        door6_2.transform.position += new Vector3(0f, -10f, 0f);
+                        door6_3.transform.position += new Vector3(0f, -10f, 0f);
+                    }
                     break;
             }
         }

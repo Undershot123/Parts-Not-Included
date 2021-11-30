@@ -8,6 +8,7 @@ public class ExtendingArms : MonoBehaviour
     public float armSpeed;
     [SerializeField] private GameObject arm;
     [SerializeField] private GameObject cam;
+    [SerializeField] private GameObject player;
     private bool fired = false;
     private bool canFire = true;
     private bool hitSomething = false;
@@ -48,6 +49,7 @@ public class ExtendingArms : MonoBehaviour
             layerMask = ~layerMask;
             if (canFire && Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 50f, layerMask))
             {
+                Debug.Log("hit " + hit.collider.gameObject.name);
                 hitSomething = true;
                 distance = Vector3.Distance(arm.transform.position, hit.transform.position);
                 canFire = false;
@@ -89,6 +91,7 @@ public class ExtendingArms : MonoBehaviour
             {
                 retracting = false;
                 canFire = true;
+                arm.transform.position = player.transform.position + new Vector3(0.75f, -0.32f, 0f);
             }
         }
     }
