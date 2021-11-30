@@ -7,6 +7,7 @@ public class StrongArms : MonoBehaviour
 
     private AbilityManager ab;
     private ThirdPersonMovement movement;
+    private BoxCollider hitbox;
     private int isPunchingHash;
 
     private float timer;
@@ -17,6 +18,7 @@ public class StrongArms : MonoBehaviour
         ab = this.transform.parent.GetComponent<AbilityManager>();
         movement = this.transform.parent.GetComponent<ThirdPersonMovement>();
         isPunchingHash = Animator.StringToHash("isPunching");
+        hitbox = GetComponent<BoxCollider>();
 
         timer = 0f;
         canPunch = true;
@@ -33,6 +35,7 @@ public class StrongArms : MonoBehaviour
         {
             movement.getAnimator().SetBool(isPunchingHash, true);
             canPunch = false;
+            hitbox.enabled = true;
             Debug.Log("Punch");
         }
 
@@ -43,8 +46,18 @@ public class StrongArms : MonoBehaviour
             {
                 movement.getAnimator().SetBool(isPunchingHash, false);
                 canPunch = true;
+                hitbox.enabled = false;
                 timer = 0f;
             }
         }
     }
+
+    private void OnTriggerStay(Collider collision)
+    {
+        if (collision.gameObject.layer == 30)
+        {
+            collision.gameObject.GetComponent<HealthDamage>().TakeDamage(25f);
+        }
+    }
+
 }
