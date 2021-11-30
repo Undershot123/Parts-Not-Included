@@ -63,6 +63,8 @@ public class PartManagement : MonoBehaviour
             movement.changeMovementSpeed(2.5f);
             if(jammoState[2].activeSelf){movement.changeMovementSpeed(3.0f);} //Armless jammo is slightly faster than Limbless Jammo and Jammo Head
         }
+
+        if(jammoState[4].activeSelf){setColliderSize(4);} //Sets collider size to Head Jammo if the game starts with Head Jammo as active
     }
 
     // Update is called once per frame
@@ -271,44 +273,33 @@ public class PartManagement : MonoBehaviour
         switch (state)
         {
             case 0:
-                jammoState[state].SetActive(true); //Switches Jammo State to base Jammo
-                movement.changeAnimator(jammoState[state].GetComponent<Animator>()); //Switches Animator Controller to base Jammo
+                changeJammoVariables(state);
                 movement.changeMovementSpeed(4.0f);
                 jumpControl.changeJumpHeight(1.5f);
-                jumpControl.changeAnimator(jammoState[state].GetComponent<Animator>());
                 break;
 
             case 1:
-                jammoState[state].SetActive(true); //Switches Jammo State to armless Jammo
-                movement.changeAnimator(jammoState[state].GetComponent<Animator>()); //Switches Animator Controller to armless Jammo
+                changeJammoVariables(state);
                 movement.changeMovementSpeed(4.0f);
                 jumpControl.changeJumpHeight(1.5f);
-                jumpControl.changeAnimator(jammoState[state].GetComponent<Animator>());
                 break;
 
             case 2:
-                jammoState[state].SetActive(true); //Switches Jammo State to legless Jammo
-                movement.changeAnimator(jammoState[state].GetComponent<Animator>()); //Switches Animator Controller to legless Jammo
+                changeJammoVariables(state);
                 movement.changeMovementSpeed(3.0f); //Reduced movement speed
                 jumpControl.changeJumpHeight(0f); //Reduced Jump Height
-                jumpControl.changeAnimator(jammoState[state].GetComponent<Animator>());
                 break;
 
             case 3:
-                jammoState[state].SetActive(true); //Switches Jammo State to limbless Jammo
-                movement.changeAnimator(jammoState[state].GetComponent<Animator>()); //Switches Animator Controller to limbless Jammo
+                changeJammoVariables(state);
                 movement.changeMovementSpeed(2.5f); //Reduced movement speed
                 jumpControl.changeJumpHeight(0f); //Can't jump
-                jumpControl.changeAnimator(jammoState[state].GetComponent<Animator>());
                 break;
 
             case 4:
-                jammoState[state].SetActive(true); //Switches Jammo State to Jammo Head
-                movement.changeAnimator(jammoState[state].GetComponent<Animator>()); //Switches Animator Controller to Jammo Head
+                changeJammoVariables(state);
                 movement.changeMovementSpeed(2.5f); //Reduced movement speed
                 jumpControl.changeJumpHeight(0f); //Can't jump
-                jumpControl.changeAnimator(jammoState[state].GetComponent<Animator>());
-                setColliderSize(state);
                 break;
 
             default:
@@ -318,34 +309,36 @@ public class PartManagement : MonoBehaviour
         }
     }
 
+    //Helper method for switchState for refactoring
+    private void changeJammoVariables(int state)
+    {
+        jammoState[state].SetActive(true); //Switches Jammo State to base Jammo
+        movement.changeAnimator(jammoState[state].GetComponent<Animator>()); //Switches Animator Controller to base Jammo
+        jumpControl.changeAnimator(jammoState[state].GetComponent<Animator>());
+        setColliderSize(state);
+    }
+
     //Sets the size of the Player collider based on which Jammo state is currently active
     private void setColliderSize(int state)
     {
         switch (state)
         {
-            case 0:
-                break;
-
-            case 1:
-                break;
-            
-            case 2:
-                break;
-
-            case 3:
-                break;
-
+            //Head Jammo is active, change collider
             case 4:
                 playerCollider.center = new Vector3(0f, -1.0f, 0f);
-                playerCollider.radius = .5f;
                 playerCollider.height = 1.0f;
 
-                capsuleCollider.center = new Vector3(0f, -.5f, 0f);
+                capsuleCollider.center = new Vector3(0f, -0.5f, 0f);
                 capsuleCollider.height = 1.0f;
                 break;
 
+            //else switch back to original collider settings
             default:
-                print("Invalid state");
+                playerCollider.center = new Vector3(0f, 0f, 0f);
+                playerCollider.height = 3.0f;
+
+                capsuleCollider.center = new Vector3(0f, 0f, 0f);
+                capsuleCollider.height = 2.0f;
                 break;
         }
     }
