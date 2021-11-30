@@ -8,10 +8,10 @@ public class Hacking : MonoBehaviour
 {
     public bool inMinigame = false;
     public int minigameCode = 0;
-    [SerializeField] private Camera minigameCam1, minigameCam2, minigameCam3, minigameCam4, minigameCam5, minigameCam6;
+    [SerializeField] private Camera minigameCam1, minigameCam2, minigameCam3, minigameCam4, minigameCam5, minigameCam6, minigameCam7;
     [SerializeField] private Camera normalCam;
     [SerializeField] private ThirdPersonMovement move;
-    [SerializeField] private GameObject door1, door2, door3, door4, door4_2, door4_3, door4_4, door4_5, door4_6, door4_7, door5, door5_2, door6, door6_2, door6_3;
+    [SerializeField] private GameObject door1, door2, door3, door4, door4_2, door4_3, door4_4, door4_5, door4_6, door4_7, door5, door5_2, door6, door6_2, door6_3, door7;
     // Start is called before the first frame update
     void Start()
     {
@@ -59,6 +59,10 @@ public class Hacking : MonoBehaviour
                     case "Terminal6":
                         minigameCam6.enabled = true;
                         minigameCode = 6;
+                        break;
+                    case "Terminal7":
+                        minigameCam7.enabled = true;
+                        minigameCode = 7;
                         break;
                 }
                 if (minigameCode != 0)
@@ -114,18 +118,25 @@ public class Hacking : MonoBehaviour
                         door6_3.transform.position += new Vector3(0f, -10f, 0f);
                     }
                     break;
+                case 7:
+                    door7.transform.position += new Vector3(0f, -10f, 0f);
+                    break;
             }
         }
         minigameCam1.enabled = false;
         minigameCam2.enabled = false;
         minigameCam3.enabled = false;
-        if (SceneManager.GetActiveScene().buildIndex == 0)
+        if (SceneManager.GetActiveScene().buildIndex == 0 || SceneManager.GetActiveScene().buildIndex == 2)
         {
-            Debug.Log("hm");
             minigameCam4.enabled = false;
             minigameCam5.enabled = false;
             minigameCam6.enabled = false;
         }
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            minigameCam7.enabled = false;
+        }
+
         normalCam.enabled = true;
         inMinigame = false;
         move.enabled = true;

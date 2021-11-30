@@ -28,6 +28,10 @@ public class HealthDamage : MonoBehaviour
         if (enemyName == "Player" && health <= 0f) {
             Debug.Log("<color=red>Jammo is dead, game over.</color>");
         }
+        if (health <= 0f)
+        {
+            gameObject.SetActive(false);
+        }
 
         // For movement, AI pathing, and attacking
         // Potentially switch to something more efficient than Update()
@@ -87,7 +91,7 @@ public class HealthDamage : MonoBehaviour
     /// </summary>
     /// <param name="damage"></param>
     public void TakeDamage(float damage) {
-        Debug.Log("<color=green>" + enemyName + " was attacked by the player</color>");
+        Debug.Log("<color=green>" + enemyName + " was attacked by the player, dealing " + damage + " damage</color>");
         health -= damage;
     }
 }

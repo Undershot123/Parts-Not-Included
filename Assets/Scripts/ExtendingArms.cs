@@ -86,6 +86,10 @@ public class ExtendingArms : MonoBehaviour
             {
                 Debug.Log("hit object " + hit.collider.gameObject.name);
                 hit.collider.gameObject.GetComponent<TargetOpen>().OpenDoor();
+            } else if (hit.collider.gameObject.layer == 30)
+            {
+                Debug.Log("hit object " + hit.collider.gameObject.name);
+                hit.collider.gameObject.GetComponent<HealthDamage>().TakeDamage(25f);
             }
             if (Vector3.Distance(arm.transform.position, goalPos) < 0.00001f)
             {
