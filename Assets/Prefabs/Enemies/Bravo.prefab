@@ -139,7 +139,7 @@ MonoBehaviour:
   attackTimer: 7
   speed: 2
   armor: 10
-  range: 0
+  range: 7
   enemyName: Bravo
 --- !u!114 &-3399432788356048001
 MonoBehaviour:
