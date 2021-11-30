@@ -68,6 +68,8 @@ public class HealthDamage : MonoBehaviour
         if(other.gameObject.tag == "Player") {
             Debug.Log("<color=red>Player is attacked by enemy " + enemyName + ", dealing " + attackDamage + " damage</color>");
             other.gameObject.GetComponent<HealthDamage>().TakeDamage(attackDamage);
+        } else if(other.gameObject.GetComponent<HealthDamage>() != null) {
+            TakeDamage(gameObject.GetComponent<HealthDamage>().attackDamage);
         }
     }
 
@@ -75,7 +77,6 @@ public class HealthDamage : MonoBehaviour
     /// Used when the enemy attacks if the player is in range.
     /// Can be called by enemy or player.
     /// </summary>
-    /// <param name="damage"></param>
     public float AttackPlayer() {
         return attackDamage;
     }
