@@ -251,6 +251,7 @@ MonoBehaviour:
   ab: {fileID: 3432558753095912622}
   armSpeed: 10
   arm: {fileID: 3432558752613807980}
+  cam: {fileID: 0}
 --- !u!114 &3432558752613807970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -537,7 +538,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7415093067008947503
 Transform:
   m_ObjectHideFlags: 0
@@ -724,26 +725,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd1d3768dcff09f478ce70159302777e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 7415093067415655789}
   camera: {fileID: 0}
-  speed: 4
-  turnSmoothTime: 0.1
   Velocity: 0
-  InputX: 0
-  InputZ: 0
-  desiredMoveDirection: {x: 0, y: 0, z: 0}
-  blockRotationPlayer: 0
-  desiredRotationSpeed: 0.1
   anim: {fileID: 0}
-  Speed: 0
-  allowPlayerRotation: 0.1
   cam: {fileID: 0}
-  isGrounded: 0
-  HorizontalAnimSmoothTime: 0.2
-  VerticalAnimTime: 0.2
-  StartAnimTime: 0.3
-  StopAnimTime: 0.15
-  verticalVel: 0
 --- !u!114 &3432558753095912622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -778,7 +763,7 @@ MonoBehaviour:
   StopAnimTime: 0.15
   verticalVel: 0
   Velocity: 0
-  anim: {fileID: 0}
+  maxJumpHeight: 1.5
   isJumping: 0
 --- !u!1 &7415093068388339325
 GameObject:
@@ -896,7 +881,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 539745478100655087, guid: 153c38d7d967fd34c87d3ca7827b3c09, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.98
+      value: -3.3
       objectReference: {fileID: 0}
     - target: {fileID: 539745478100655087, guid: 153c38d7d967fd34c87d3ca7827b3c09, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1010,7 +995,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3541754002163558908, guid: c15836412041a554b94d0c3771412103, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4757836856755875627, guid: c15836412041a554b94d0c3771412103, type: 3}
       propertyPath: m_Enabled
@@ -1372,7 +1357,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3541754002163558908, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3921334144448749991, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
       propertyPath: m_Layer
