@@ -141,4 +141,9 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         anim = newAnimator;
     }
+
+    public Animator getAnimator()
+    {
+        return anim;
+    }
 }

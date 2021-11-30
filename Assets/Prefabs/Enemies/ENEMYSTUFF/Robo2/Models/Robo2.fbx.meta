@@ -1,68 +1,176 @@
 fileFormatVersion: 2
 guid: 645869f145eabb4419bf43bd1fd7c98c
-timeCreated: 1503839197
-licenseType: Store
 ModelImporter:
-  serializedVersion: 21
-  fileIDToRecycleName:
-    100000: Body1
-    100002: Body_joint
-    100004: Eye_joint
-    100006: Glass
-    100008: Glass_joint
-    100010: Hand_Joint1
-    100012: Hand_Joint2
-    100014: Hand_Joint3
-    100016: Hand_Joint4
-    100018: Hand_Joint5
-    100020: Hand_Joint6
-    100022: Hand_Joint7
-    100024: joint5
-    100026: Light4
-    100028: Light_joint
-    100030: Mask1
-    100032: Mask_joint
-    100034: Mask_joint 1
-    100036: //RootNode
-    100038: Hand_joint8
-    100040: pPlane1
-    400000: Body1
-    400002: Body_joint
-    400004: Eye_joint
-    400006: Glass
-    400008: Glass_joint
-    400010: Hand_Joint1
-    400012: Hand_Joint2
-    400014: Hand_Joint3
-    400016: Hand_Joint4
-    400018: Hand_Joint5
-    400020: Hand_Joint6
-    400022: Hand_Joint7
-    400024: joint5
-    400026: Light4
-    400028: Light_joint
-    400030: Mask1
-    400032: Mask_joint
-    400034: Mask_joint 1
-    400036: //RootNode
-    400038: Hand_joint8
-    400040: pPlane1
-    2300000: pPlane1
-    3300000: pPlane1
-    4300000: Light4
-    4300002: Glass
-    4300004: Mask1
-    4300006: Body1
-    4300008: pPlane1
-    9500000: //RootNode
-    13700000: Body1
-    13700002: Glass
-    13700004: Light4
-    13700006: Mask1
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Body1
+  - first:
+      1: 100002
+    second: Body_joint
+  - first:
+      1: 100004
+    second: Eye_joint
+  - first:
+      1: 100006
+    second: Glass
+  - first:
+      1: 100008
+    second: Glass_joint
+  - first:
+      1: 100010
+    second: Hand_Joint1
+  - first:
+      1: 100012
+    second: Hand_Joint2
+  - first:
+      1: 100014
+    second: Hand_Joint3
+  - first:
+      1: 100016
+    second: Hand_Joint4
+  - first:
+      1: 100018
+    second: Hand_Joint5
+  - first:
+      1: 100020
+    second: Hand_Joint6
+  - first:
+      1: 100022
+    second: Hand_Joint7
+  - first:
+      1: 100024
+    second: joint5
+  - first:
+      1: 100026
+    second: Light4
+  - first:
+      1: 100028
+    second: Light_joint
+  - first:
+      1: 100030
+    second: Mask1
+  - first:
+      1: 100032
+    second: Mask_joint
+  - first:
+      1: 100034
+    second: Mask_joint 1
+  - first:
+      1: 100036
+    second: //RootNode
+  - first:
+      1: 100038
+    second: Hand_joint8
+  - first:
+      1: 100040
+    second: pPlane1
+  - first:
+      4: 400000
+    second: Body1
+  - first:
+      4: 400002
+    second: Body_joint
+  - first:
+      4: 400004
+    second: Eye_joint
+  - first:
+      4: 400006
+    second: Glass
+  - first:
+      4: 400008
+    second: Glass_joint
+  - first:
+      4: 400010
+    second: Hand_Joint1
+  - first:
+      4: 400012
+    second: Hand_Joint2
+  - first:
+      4: 400014
+    second: Hand_Joint3
+  - first:
+      4: 400016
+    second: Hand_Joint4
+  - first:
+      4: 400018
+    second: Hand_Joint5
+  - first:
+      4: 400020
+    second: Hand_Joint6
+  - first:
+      4: 400022
+    second: Hand_Joint7
+  - first:
+      4: 400024
+    second: joint5
+  - first:
+      4: 400026
+    second: Light4
+  - first:
+      4: 400028
+    second: Light_joint
+  - first:
+      4: 400030
+    second: Mask1
+  - first:
+      4: 400032
+    second: Mask_joint
+  - first:
+      4: 400034
+    second: Mask_joint 1
+  - first:
+      4: 400036
+    second: //RootNode
+  - first:
+      4: 400038
+    second: Hand_joint8
+  - first:
+      4: 400040
+    second: pPlane1
+  - first:
+      23: 2300000
+    second: pPlane1
+  - first:
+      33: 3300000
+    second: pPlane1
+  - first:
+      43: 4300000
+    second: Light4
+  - first:
+      43: 4300002
+    second: Glass
+  - first:
+      43: 4300004
+    second: Mask1
+  - first:
+      43: 4300006
+    second: Body1
+  - first:
+      43: 4300008
+    second: pPlane1
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: Body1
+  - first:
+      137: 13700002
+    second: Glass
+  - first:
+      137: 13700004
+    second: Light4
+  - first:
+      137: 13700006
+    second: Mask1
+  externalObjects: {}
   materials:
-    importMaterials: 0
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -75,7 +183,9 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    animationCompression: 1
+    importAnimatedCustomProperties: 0
+    importConstraints: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -89,19 +199,31 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
@@ -109,12 +231,110 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: Robo2(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Light4
+      parentName: Robo2(Clone)
+      position: {x: -3.8302162e-14, y: 143.0946, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.01, y: 0.01, z: 0.01}
+    - name: Glass
+      parentName: Robo2(Clone)
+      position: {x: -0, y: 1.15, z: 0.05}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.006, y: 0.005, z: 0.0028}
+    - name: Mask1
+      parentName: Robo2(Clone)
+      position: {x: -3.879879e-14, y: -65.90332, z: 2.1878471}
+      rotation: {x: 5.594483e-17, y: -4.155009e-16, z: -2.776241e-16, w: 1}
+      scale: {x: 0.01, y: 0.01, z: 0.01}
+    - name: Body1
+      parentName: Robo2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.01, y: 0.01, z: 0.01}
+    - name: Body_joint
+      parentName: Robo2(Clone)
+      position: {x: -1.1413716e-18, y: 1.2801257, z: 0.0010280561}
+      rotation: {x: -0.49937463, y: 0.50062466, z: -0.49937463, w: 0.50062466}
+      scale: {x: 0.01, y: 0.01, z: 0.01}
+    - name: Light_joint
+      parentName: Body_joint
+      position: {x: 85.407974, y: -0.21351995, z: -2.2178901e-15}
+      rotation: {x: 1.4789938e-31, y: 5.5510804e-17, z: -2.1684043e-19, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mask_joint
+      parentName: Body_joint
+      position: {x: -102.54422, y: -10.727551, z: 1.3168582e-14}
+      rotation: {x: -4.5176304e-19, y: -2.6597319e-20, z: 0.0005230448, w: 0.9999999}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mask_joint 1
+      parentName: Mask_joint
+      position: {x: -62.260708, y: -1.0658141e-14, z: 3.1539644e-15}
+      rotation: {x: 0.12700695, y: 0.058712155, z: -0.51298475, w: 0.84691733}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Glass_joint
+      parentName: Mask_joint 1
+      position: {x: 6.3074646, y: 17.055231, z: 0.009573349}
+      rotation: {x: 2.8550806e-32, y: -0.7071068, z: 2.8550806e-32, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Hand_Joint1
+      parentName: Body_joint
+      position: {x: -10.961325, y: -43.817978, z: 3.53845e-14}
+      rotation: {x: 0.15992947, y: -0.68878347, z: 0.15992941, w: 0.68878347}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Hand_Joint2
+      parentName: Hand_Joint1
+      position: {x: 3.792869e-15, y: 0.30639577, z: 34.316326}
+      rotation: {x: -5.572799e-17, y: 2.775549e-17, z: 6.9388724e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Hand_Joint3
+      parentName: Hand_Joint2
+      position: {x: 3.5434128e-15, y: -0.30639577, z: 31.76303}
+      rotation: {x: 0.9499687, y: 8.603383e-18, z: -0.000000014901158, w: -0.3123454}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Hand_Joint4
+      parentName: Hand_Joint3
+      position: {x: -1.2545671e-16, y: -1.0315008, z: -0.07725169}
+      rotation: {x: 0.9848078, y: 0, z: 0, w: -0.1736482}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Hand_Joint5
+      parentName: Hand_Joint4
+      position: {x: 5.215904e-15, y: -0.39231613, z: 46.784527}
+      rotation: {x: 0.000000059604623, y: -0.60529107, z: -0.0019021921, w: 0.796002}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Hand_Joint6
+      parentName: Hand_Joint5
+      position: {x: 4.9737398e-15, y: 0, z: 44.799465}
+      rotation: {x: 1.6653345e-16, y: 2.775549e-17, z: 6.9388724e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Hand_Joint7
+      parentName: Hand_Joint6
+      position: {x: -7.4409475e-17, y: -0.13845819, z: -0.7394501}
+      rotation: {x: 0.1142439, y: 0.5998894, z: -0.08054172, w: 0.78777796}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Hand_joint8
+      parentName: Hand_Joint7
+      position: {x: -87.11981, y: -2.842171e-14, z: 2.91847e-14}
+      rotation: {x: -0.012741107, y: -0.70699203, z: -0.012741107, w: 0.70699203}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Eye_joint
+      parentName: Body_joint
+      position: {x: -110.715034, y: -59.457397, z: 5.861366e-14}
+      rotation: {x: 0.49937463, y: -0.50062466, z: 0.49937463, w: 0.50062466}
+      scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -122,14 +342,17 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    globalScale: 1
+    rootMotionBoneName: Hand_Joint1
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
