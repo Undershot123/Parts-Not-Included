@@ -20,7 +20,7 @@ public class PartManagement : MonoBehaviour
     private bool destroying;
     public AbilityManager ab;
 
-    //Variables for controlling Jammo's states
+    //Variables for controlling Jammo's states and properties
     private GameObject[] jammoState = new GameObject[5];
     private ThirdPersonMovement movement; //Controls movement speed and animator controller changes based on current state
     private CharacterController playerCollider; //Controls size of collider of the player based on current state
@@ -60,7 +60,7 @@ public class PartManagement : MonoBehaviour
         }
         else{ //Sets maxJumpHeight and Movement speed for Armless Jammo, Limbless Jammo, and Jammo Head
             jumpControl.changeJumpHeight(0f);
-            movement.changeMovementSpeed(2.0f);
+            movement.changeMovementSpeed(2.5f);
             if(jammoState[2].activeSelf){movement.changeMovementSpeed(3.0f);} //Armless jammo is slightly faster than Limbless Jammo and Jammo Head
         }
     }
@@ -297,7 +297,7 @@ public class PartManagement : MonoBehaviour
             case 3:
                 jammoState[state].SetActive(true); //Switches Jammo State to limbless Jammo
                 movement.changeAnimator(jammoState[state].GetComponent<Animator>()); //Switches Animator Controller to limbless Jammo
-                movement.changeMovementSpeed(2.0f); //Reduced movement speed
+                movement.changeMovementSpeed(2.5f); //Reduced movement speed
                 jumpControl.changeJumpHeight(0f); //Can't jump
                 jumpControl.changeAnimator(jammoState[state].GetComponent<Animator>());
                 break;
@@ -305,7 +305,7 @@ public class PartManagement : MonoBehaviour
             case 4:
                 jammoState[state].SetActive(true); //Switches Jammo State to Jammo Head
                 movement.changeAnimator(jammoState[state].GetComponent<Animator>()); //Switches Animator Controller to Jammo Head
-                movement.changeMovementSpeed(2.0f); //Reduced movement speed
+                movement.changeMovementSpeed(2.5f); //Reduced movement speed
                 jumpControl.changeJumpHeight(0f); //Can't jump
                 jumpControl.changeAnimator(jammoState[state].GetComponent<Animator>());
                 setColliderSize(state);
@@ -348,6 +348,12 @@ public class PartManagement : MonoBehaviour
                 print("Invalid state");
                 break;
         }
+    }
+
+    //used to update jammoState in AbilityManager
+    public bool isJammoStateActive(int state)
+    {
+        return jammoState[state].activeSelf;
     }
 
 }

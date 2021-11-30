@@ -7,11 +7,17 @@ public class AbilityManager : MonoBehaviour
     public int armCode, legCode;
     public ThirdPersonMovement move;
 
+    private GameObject[] jammoState = new GameObject[5];
+    private PartManagement jammoUpdate;
+
     // Start is called before the first frame update
     void Start()
     {
         armCode = 1;
         legCode = 1;
+        
+        //Object used to check what Jammo state is currently active
+        jammoUpdate = this.GetComponentInChildren<PartManagement>();
     }
 
     // Update is called once per frame
@@ -20,29 +26,48 @@ public class AbilityManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha2) && Input.GetKey(KeyCode.Tab))
         { // legs
             legCode++;
-            if (legCode == 4)
+            if (legCode == 3)
             {
                 legCode = 1;
             }
-            SwitchUpgrade("legs", legCode);
+
+            //Only runs if Base Jammo or Armless Jammo are active
+            if(jammoUpdate.isJammoStateActive(0) || jammoUpdate.isJammoStateActive(1))
+            {
+                SwitchUpgrade("legs", legCode);
+            }
+            else{
+                Debug.Log("You have no legs!!");
+            }
+            
         }
+
         if (Input.GetKeyDown(KeyCode.Alpha3) && Input.GetKey(KeyCode.Tab))
-        {
+        { //arms
             armCode++;
-            if (armCode == 6)
+            if (armCode == 3)
             {
                 armCode = 1;
             }
-            SwitchUpgrade("arms", armCode);
+
+            //Only runs if Base Jammo or Legless Jammo are active
+            if(jammoUpdate.isJammoStateActive(0) || jammoUpdate.isJammoStateActive(2))
+            {
+                SwitchUpgrade("arms", armCode);
+            }
+            else{
+                Debug.Log("You have no arms!!");
+            }
+            
         } 
-        if (Input.GetKey(KeyCode.Mouse0) && armCode == 3)
+        /* if (Input.GetKey(KeyCode.Mouse0) && armCode == 3)
         {
             move.enabled = false;
         }
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
             move.enabled = true;
-        }
+        } */
     }
 
     public void SwitchUpgrade(string bodyPart, int code)
@@ -59,18 +84,8 @@ public class AbilityManager : MonoBehaviour
                     Debug.Log("Extending Arms Equipped");
                     move.enabled = true;
                     break;
-                case 3:
-                    Debug.Log("Anchor Arms Equipped");
-                    
-                    break;
-                case 4:
-                    Debug.Log("Grappling Arms Equipped");
-                    move.enabled = true;
-                    break;
-                case 5:
-                    Debug.Log("Windblowing Arms Equipped");
-                    move.enabled = true;
-                    break;
+                default:
+                    break; //nothing happens
             }
         } else if (bodyPart == "legs")
         {
@@ -83,10 +98,8 @@ public class AbilityManager : MonoBehaviour
                 case 2:
                     Debug.Log("Super Jump Legs Equipped");
                     break;
-                case 3:
-                    Debug.Log("Sturdy Legs Equipped");
-                    move.changeMovementSpeed(2.0f);
-                    break;
+                default:
+                    break; //nothing happens
             }
         } else
         {
