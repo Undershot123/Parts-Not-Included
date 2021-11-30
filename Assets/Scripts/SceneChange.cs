@@ -21,7 +21,15 @@ public class SceneChange : MonoBehaviour
     {
         if (other.gameObject.layer == 20)
         {
-            SceneManager.LoadScene("Level 2");
+            switch (SceneManager.GetActiveScene().name)
+            {
+                case "Level 1":
+                    SceneManager.LoadScene("Level 2");
+                    break;
+                case "Level 2":
+                    SceneManager.LoadScene("Level 3");
+                    break;
+            }
         }
     }
 

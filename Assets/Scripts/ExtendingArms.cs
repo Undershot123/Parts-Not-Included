@@ -82,6 +82,7 @@ public class ExtendingArms : MonoBehaviour
             arm.transform.position = Vector3.Lerp(startPos, goalPos, fraction);
             if (hit.collider.gameObject.layer == 25)
             {
+                Debug.Log("hit object " + hit.collider.gameObject.name);
                 hit.collider.gameObject.GetComponent<TargetOpen>().OpenDoor();
             }
             if (Vector3.Distance(arm.transform.position, goalPos) < 0.00001f)

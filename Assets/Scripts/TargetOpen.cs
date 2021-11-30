@@ -22,6 +22,7 @@ public class TargetOpen : MonoBehaviour
     public void OpenDoor()
     {
         door.transform.position += new Vector3(0f, -10f, 0f);
+        Debug.Log("moved " + door.name);
     }
 
 }
