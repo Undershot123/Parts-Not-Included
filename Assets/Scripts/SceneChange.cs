@@ -8,19 +8,18 @@ public class SceneChange : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 20)
         {
+            Debug.Log("collided and current scene is " + SceneManager.GetActiveScene().name);
             switch (SceneManager.GetActiveScene().name)
             {
                 case "Level 1":
