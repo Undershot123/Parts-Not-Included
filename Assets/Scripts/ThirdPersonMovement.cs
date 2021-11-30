@@ -4,47 +4,50 @@ using UnityEngine;
 
 public class ThirdPersonMovement : MonoBehaviour
 {
-    public CharacterController controller;
-    public Transform camera;
+    private CharacterController controller;
+    [SerializeField]
+    private Transform camera;
 
-    public float speed = 4f;
+    private float speed = 4f;
 
-    public float turnSmoothTime = 0.1f;
+    private float turnSmoothTime = 0.1f;
     private float turnSmoothVelocity; 
 
     //Copied from Jammo's original movement script
-    public float Velocity;
+    [SerializeField]
+    private float Velocity;
     [Space]
 
-	public float InputX;
-	public float InputZ;
-	public Vector3 desiredMoveDirection;
-	public bool blockRotationPlayer;
-	public float desiredRotationSpeed = 0.1f;
-	public Animator anim;
-	public float Speed;
-	public float allowPlayerRotation = 0.1f;
+	private float InputX;
+	private float InputZ;
+	private Vector3 desiredMoveDirection;
+	private bool blockRotationPlayer;
+	private float desiredRotationSpeed = 0.1f;
+    [SerializeField]
+	private Animator anim;
+	private float Speed;
+	private float allowPlayerRotation = 0.1f;
 	public Camera cam;
 	//public CharacterController controller;
-	public bool isGrounded;
+	private bool isGrounded;
 
     [Header("Animation Smoothing")]
     [Range(0, 1f)]
-    public float HorizontalAnimSmoothTime = 0.2f;
+    private float HorizontalAnimSmoothTime = 0.2f;
     [Range(0, 1f)]
-    public float VerticalAnimTime = 0.2f;
+    private float VerticalAnimTime = 0.2f;
     [Range(0,1f)]
-    public float StartAnimTime = 0.3f;
+    private float StartAnimTime = 0.3f;
     [Range(0, 1f)]
-    public float StopAnimTime = 0.15f;
+    private float StopAnimTime = 0.15f;
 
-    public float verticalVel = 0;
+    private float verticalVel = 0;
     private Vector3 moveVector;
 
     //Copied from Jammo's original movement script
     void Start () {
 		anim = GetComponentInChildren<Animator> ();
-		cam = Camera.main;
+		//cam = Camera.main;
 		controller = this.GetComponent<CharacterController> ();
 	}
 
@@ -128,4 +131,14 @@ public class ThirdPersonMovement : MonoBehaviour
 			anim.SetFloat ("Blend", 0f, StopAnimTime, Time.deltaTime);
 		}
 	}
+
+    public void changeMovementSpeed(float newSpeed)
+    {
+        speed = newSpeed;
+    }
+
+    public void changeAnimator(Animator newAnimator)
+    {
+        anim = newAnimator;
+    }
 }

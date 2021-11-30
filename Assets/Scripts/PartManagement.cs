@@ -22,9 +22,9 @@ public class PartManagement : MonoBehaviour
 
     //Variables for controlling Jammo's states
     private GameObject[] jammoState = new GameObject[5];
-    private ThirdPersonMovement movement;
-    private CharacterController speedControl;
-    private marioJump jumpControl;
+    private ThirdPersonMovement movement; //Controls movement speed and animator controller changes based on current state
+    private CharacterController colliderControl; //Controls size of collider based on current state
+    private marioJump jumpControl; //Controls maxJumpHeight changes based on current state
 
     // Start is called before the first frame update
     void Start()
@@ -46,9 +46,16 @@ public class PartManagement : MonoBehaviour
         movement = jammoState[0].transform.parent.GetComponent<ThirdPersonMovement>();
         jumpControl = jammoState[0].transform.parent.GetComponent<marioJump>();
 
-        //Sets the player's jump height based on current active state
-        if(jammoState[0].activeSelf || jammoState[1].activeSelf){jumpControl.changeJumpHeight(1.5f);}
-        else{jumpControl.changeJumpHeight(0f);}
+        //Sets the player's jump height and movement speed based on current active state
+        if(jammoState[0].activeSelf || jammoState[1].activeSelf){
+            jumpControl.changeJumpHeight(1.5f);
+            movement.changeMovementSpeed(4.0f);
+        }
+        else{ //Sets maxJumpHeight and Movement speed for Armless Jammo, Limbless Jammo, and Jammo Head
+            jumpControl.changeJumpHeight(0f);
+            movement.changeMovementSpeed(2.0f);
+            if(jammoState[2].activeSelf){movement.changeMovementSpeed(3.0f);} //Armless jammo is slightly faster than Limbless Jammo and Jammo Head
+        }
     }
 
     // Update is called once per frame
@@ -191,7 +198,6 @@ public class PartManagement : MonoBehaviour
 
                 jammoState[4].SetActive(false);
                 switchState(3);
-                Debug.Log("Picked up torso, turn to limbless jammo");
             }
             
         }
@@ -258,43 +264,43 @@ public class PartManagement : MonoBehaviour
         switch (state)
         {
             case 0:
-                jammoState[0].SetActive(true); //Switches Jammo State to base Jammo
-                movement.anim = jammoState[0].GetComponent<Animator>(); //Switches Animator Controller to base Jammo
-                movement.speed = 4.0f;
+                jammoState[state].SetActive(true); //Switches Jammo State to base Jammo
+                movement.changeAnimator(jammoState[state].GetComponent<Animator>()); //Switches Animator Controller to base Jammo
+                movement.changeMovementSpeed(4.0f);
                 jumpControl.changeJumpHeight(1.5f);
-                jumpControl.anim = jammoState[0].GetComponent<Animator>();
+                jumpControl.changeAnimator(jammoState[state].GetComponent<Animator>());
                 break;
 
             case 1:
-                jammoState[1].SetActive(true); //Switches Jammo State to armless Jammo
-                movement.anim = jammoState[1].GetComponent<Animator>(); //Switches Animator Controller to armless Jammo
-                movement.speed = 4.0f;
+                jammoState[state].SetActive(true); //Switches Jammo State to armless Jammo
+                movement.changeAnimator(jammoState[state].GetComponent<Animator>()); //Switches Animator Controller to armless Jammo
+                movement.changeMovementSpeed(4.0f);
                 jumpControl.changeJumpHeight(1.5f);
-                jumpControl.anim = jammoState[1].GetComponent<Animator>();
+                jumpControl.changeAnimator(jammoState[state].GetComponent<Animator>());
                 break;
 
             case 2:
-                jammoState[2].SetActive(true); //Switches Jammo State to legless Jammo
-                movement.anim = jammoState[2].GetComponent<Animator>(); //Switches Animator Controller to legless Jammo
-                movement.speed = 2.0f; //Reduced movement speed
+                jammoState[state].SetActive(true); //Switches Jammo State to legless Jammo
+                movement.changeAnimator(jammoState[state].GetComponent<Animator>()); //Switches Animator Controller to legless Jammo
+                movement.changeMovementSpeed(3.0f); //Reduced movement speed
                 jumpControl.changeJumpHeight(0f); //Reduced Jump Height
-                jumpControl.anim = jammoState[2].GetComponent<Animator>();
+                jumpControl.changeAnimator(jammoState[state].GetComponent<Animator>());
                 break;
 
             case 3:
-                jammoState[3].SetActive(true); //Switches Jammo State to limbless Jammo
-                movement.anim = jammoState[3].GetComponent<Animator>(); //Switches Animator Controller to limbless Jammo
-                movement.speed = 2.0f; //Reduced movement speed
+                jammoState[state].SetActive(true); //Switches Jammo State to limbless Jammo
+                movement.changeAnimator(jammoState[state].GetComponent<Animator>()); //Switches Animator Controller to limbless Jammo
+                movement.changeMovementSpeed(2.0f); //Reduced movement speed
                 jumpControl.changeJumpHeight(0f); //Can't jump
-                jumpControl.anim = jammoState[3].GetComponent<Animator>();
+                jumpControl.changeAnimator(jammoState[state].GetComponent<Animator>());
                 break;
 
             case 4:
-                jammoState[4].SetActive(true); //Switches Jammo State to Jammo Head
-                movement.anim = jammoState[4].GetComponent<Animator>(); //Switches Animator Controller to Jammo Head
-                movement.speed = 2.0f; //Reduced movement speed
+                jammoState[state].SetActive(true); //Switches Jammo State to Jammo Head
+                movement.changeAnimator(jammoState[state].GetComponent<Animator>()); //Switches Animator Controller to Jammo Head
+                movement.changeMovementSpeed(2.0f); //Reduced movement speed
                 jumpControl.changeJumpHeight(0f); //Can't jump
-                jumpControl.anim = jammoState[4].GetComponent<Animator>();
+                jumpControl.changeAnimator(jammoState[state].GetComponent<Animator>());
                 break;
 
             default:

@@ -28,7 +28,7 @@ public class marioJump : MonoBehaviour
     public float Velocity;
     [Space]
 
-	public Animator anim;
+	private Animator anim;
 
 
     //Variables to store optomized setter/getter parameter IDs
@@ -209,6 +209,11 @@ public class marioJump : MonoBehaviour
     void OnDisable()
     {
         playerInput.CharacterControls.Disable();
+    }
+
+    public void changeAnimator(Animator newAnim)
+    {
+        anim = newAnim;
     }
 
 }

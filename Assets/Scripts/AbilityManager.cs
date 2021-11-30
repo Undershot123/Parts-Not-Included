@@ -78,14 +78,14 @@ public class AbilityManager : MonoBehaviour
             {
                 case 1:
                     Debug.Log("Speed Legs Equipped");
-                    move.speed = 8;
+                    move.changeMovementSpeed(8.0f);
                     break;
                 case 2:
                     Debug.Log("Super Jump Legs Equipped");
                     break;
                 case 3:
                     Debug.Log("Sturdy Legs Equipped");
-                    move.speed = 2;
+                    move.changeMovementSpeed(2.0f);
                     break;
             }
         } else
