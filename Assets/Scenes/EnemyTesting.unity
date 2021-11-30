@@ -362,8 +362,17 @@ MonoBehaviour:
   door2: {fileID: 0}
   door3: {fileID: 0}
   door4: {fileID: 0}
+  door4_2: {fileID: 0}
+  door4_3: {fileID: 0}
+  door4_4: {fileID: 0}
+  door4_5: {fileID: 0}
+  door4_6: {fileID: 0}
+  door4_7: {fileID: 0}
   door5: {fileID: 0}
+  door5_2: {fileID: 0}
   door6: {fileID: 0}
+  door6_2: {fileID: 0}
+  door6_3: {fileID: 0}
 --- !u!65 &678857688
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -448,8 +457,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d674681742ca024aba9d32bcf6be863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 1124743637}
-  speed: 4
   turnSmoothTime: 0.1
   HorizontalAnimSmoothTime: 0.2
   VerticalAnimTime: 0.2
@@ -457,15 +464,8 @@ MonoBehaviour:
   StopAnimTime: 0.15
   verticalVel: 0
   Velocity: 0
-  InputX: 0
-  InputZ: 0
-  desiredMoveDirection: {x: 0, y: 0, z: 0}
-  blockRotationPlayer: 0
-  desiredRotationSpeed: 0.1
-  anim: {fileID: 0}
-  Speed: 0
-  allowPlayerRotation: 0.1
-  cam: {fileID: 0}
+  maxJumpHeight: 1.5
+  isJumping: 0
 --- !u!114 &798021618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -478,6 +478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ecca89305a4bbb439cddfcfc2081558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jump: {fileID: 0}
   armCode: 0
   legCode: 0
   move: {fileID: 798021619}
@@ -1418,6 +1419,8 @@ MonoBehaviour:
   ab: {fileID: 798021618}
   armSpeed: 10
   arm: {fileID: 897344430}
+  cam: {fileID: 0}
+  player: {fileID: 0}
 --- !u!65 &897344435
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1683,6 +1686,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1959177654076282234, guid: d0d1214397ab2ec47a2dd6c4244ac235, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 798021621}
+    - target: {fileID: 1959177654076282234, guid: d0d1214397ab2ec47a2dd6c4244ac235, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 7225835777698277461, guid: b154ba2c55a002d4b85c55a7c97047c2, type: 3}
     - target: {fileID: 4363151635644607958, guid: d0d1214397ab2ec47a2dd6c4244ac235, type: 3}
       propertyPath: m_Name
       value: Echo
@@ -1697,15 +1708,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4363151635644607962, guid: d0d1214397ab2ec47a2dd6c4244ac235, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10
+      value: 9.76
       objectReference: {fileID: 0}
     - target: {fileID: 4363151635644607962, guid: d0d1214397ab2ec47a2dd6c4244ac235, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 4.66
       objectReference: {fileID: 0}
     - target: {fileID: 4363151635644607962, guid: d0d1214397ab2ec47a2dd6c4244ac235, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1.64
       objectReference: {fileID: 0}
     - target: {fileID: 4363151635644607962, guid: d0d1214397ab2ec47a2dd6c4244ac235, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1735,7 +1746,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8801437644583615086, guid: d0d1214397ab2ec47a2dd6c4244ac235, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4363151635644607961, guid: d0d1214397ab2ec47a2dd6c4244ac235, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: d0d1214397ab2ec47a2dd6c4244ac235, type: 3}
 --- !u!1001 &7278464524130982233
 PrefabInstance:
@@ -1744,6 +1761,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2257367446769951491, guid: 76149aefd12ad0647a0004df7016d78f, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5182684137220149191, guid: 76149aefd12ad0647a0004df7016d78f, type: 3}
       propertyPath: target
       value: 
