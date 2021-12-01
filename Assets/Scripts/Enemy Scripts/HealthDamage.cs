@@ -13,6 +13,8 @@ public class HealthDamage : MonoBehaviour
     /// </summary>
     public float health, attackDamage, attackTimer, speed, armor, range;
 
+    public AudioClip roboDeath; // Creates an AudioClip object for the robot death
+
     // Name of the enemy
     public string enemyName;
     
@@ -30,7 +32,11 @@ public class HealthDamage : MonoBehaviour
         }
         if (health <= 0f)
         {
+            AudioSource.PlayClipAtPoint(roboDeath, transform.position); // Plays Robot Death noise when dead
+
             gameObject.SetActive(false);
+            
+            
         }
 
         // For movement, AI pathing, and attacking

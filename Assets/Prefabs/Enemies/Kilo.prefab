@@ -140,6 +140,7 @@ MonoBehaviour:
   speed: 4
   armor: 0
   range: 1
+  roboDeath: {fileID: 8300000, guid: 47e28c182dd9e1c4e8b5cf86f7a6111b, type: 3}
   enemyName: Kilo
 --- !u!114 &-360067590315542510
 MonoBehaviour:

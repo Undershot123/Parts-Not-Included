@@ -7,6 +7,8 @@ public class ButtonClose : MonoBehaviour
     [SerializeField] private GameObject door;
     public bool open;
 
+    public AudioClip doorAudio;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,7 @@ public class ButtonClose : MonoBehaviour
     {
         if (open && other.gameObject.layer == 20)
         {
+            AudioSource.PlayClipAtPoint(doorAudio, transform.position);
             door.transform.position += new Vector3(0f, 10f, 0f);
             open = false;
         }
