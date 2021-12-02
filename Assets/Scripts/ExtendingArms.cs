@@ -58,10 +58,9 @@ public class ExtendingArms : MonoBehaviour
             {
                 Debug.Log("hit " + hit.collider.gameObject.name);
                 hitSomething = true;
-                distance = Vector3.Distance(arm.transform.position, hit.transform.position);
+                distance = Vector3.Distance(arm.transform.position, hit.point);
                 canFire = false;
-                Debug.Log("hit at " + hit.transform.position);
-                Debug.DrawLine(arm.transform.position, hit.transform.position);
+                Debug.Log("hit at " + hit.point);
                 fired = false;
             } else
             {
@@ -74,14 +73,14 @@ public class ExtendingArms : MonoBehaviour
         {
             float currentDistance = (Time.time - startTime) * armSpeed;
             float fraction = currentDistance / distance;
-            arm.transform.position = Vector3.Lerp(startPos, hit.transform.position, fraction);
-            if (Vector3.Distance(arm.transform.position, hit.transform.position) < 0.00001f)
+            arm.transform.position = Vector3.Lerp(startPos, hit.point, fraction);
+            if (Vector3.Distance(arm.transform.position, hit.point) < 0.00001f)
             {
                 hitSomething = false;
                 retracting = true;
                 startTime = Time.time;
                 goalPos = startPos;
-                startPos = hit.transform.position;
+                startPos = hit.point;
             }
         }
         if (retracting)
