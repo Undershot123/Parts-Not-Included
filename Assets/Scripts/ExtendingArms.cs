@@ -45,7 +45,7 @@ public class ExtendingArms : MonoBehaviour
             startPos = arm.transform.position;
             anim = movement.getAnimator();
             anim.SetBool(shootHash, true);
-            Debug.Log("Shoot: "+ shootHash);
+            Debug.Log(anim.GetBool(shootHash));
             //Debug.Log("GEtting input, start at " + startTime + " with position " + startPos);
         }
     }
