@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ExtendingArms : MonoBehaviour
 {
+    [SerializeField] private LayerMask ignore;
     public AbilityManager ab;
     public float armSpeed;
     [SerializeField] private GameObject arm;
@@ -53,9 +54,7 @@ public class ExtendingArms : MonoBehaviour
     {
         if (fired)
         {
-            int layerMask = 1 << 2;
-            layerMask = ~layerMask;
-            if (canFire && Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 50f, layerMask))
+            if (canFire && Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 50f, ignore))
             {
                 Debug.Log("hit " + hit.collider.gameObject.name);
                 hitSomething = true;

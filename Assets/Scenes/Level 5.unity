@@ -29348,6 +29348,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 322581694}
+    - target: {fileID: 3432558752613807971, guid: 4cb16cc982d0463458a5c49212f427a5, type: 3}
+      propertyPath: ignore.m_Bits
+      value: 1107395891
+      objectReference: {fileID: 0}
     - target: {fileID: 3432558752680620924, guid: 4cb16cc982d0463458a5c49212f427a5, type: 3}
       propertyPath: door1
       value: 
