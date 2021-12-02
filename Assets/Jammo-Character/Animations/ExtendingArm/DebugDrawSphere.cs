@@ -6,6 +6,6 @@ public class DebugDrawSphere : MonoBehaviour
 {
     private void OnDrawGizmos(){
         Gizmos.color = Color.red;
-        Gizmos.DrawSphere(Camera.main.transform.forward, 0.05f);
+        Gizmos.DrawSphere(transform.position, 0.05f);
     }
 }
