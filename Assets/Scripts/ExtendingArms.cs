@@ -19,10 +19,15 @@ public class ExtendingArms : MonoBehaviour
     private float distance;
     private RaycastHit hit;
 
+    private ThirdPersonMovement movement;
+    private Animator anim;
+    private int shootHash;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        movement = this.transform.parent.GetComponent<ThirdPersonMovement>();
+        shootHash = Animator.StringToHash("shoot");
     }
 
     // Update is called once per frame
@@ -37,7 +42,10 @@ public class ExtendingArms : MonoBehaviour
             fired = true;
             startTime = Time.time;
             startPos = arm.transform.position;
-            Debug.Log("GEtting input, start at " + startTime + " with position " + startPos);
+            anim = movement.getAnimator();
+            anim.SetBool(shootHash, true);
+            Debug.Log("Shoot: "+ shootHash);
+            //Debug.Log("GEtting input, start at " + startTime + " with position " + startPos);
         }
     }
 
@@ -96,6 +104,7 @@ public class ExtendingArms : MonoBehaviour
                 retracting = false;
                 canFire = true;
                 arm.transform.position = player.transform.position + new Vector3(0.75f, -0.32f, 0f);
+                anim.SetBool(shootHash, false);
             }
         }
     }
