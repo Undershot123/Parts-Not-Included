@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 using Cinemachine;
 
 public class Hacking : MonoBehaviour
@@ -12,8 +13,8 @@ public class Hacking : MonoBehaviour
     [SerializeField] private Camera normalCam;
     [SerializeField] private ThirdPersonMovement move;
     [SerializeField] private GameObject door1, door2, door3, door4, door4_2, door4_3, door4_4, door4_5, door4_6, door4_7, door5, door5_2, door6, door6_2, door6_3, door7;
-   
-     public AudioClip doorAudio;
+
+    [SerializeField] private AudioSource doorOpen, hackingStart;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +37,7 @@ public class Hacking : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E) && !inMinigame)
             {
+                hackingStart.Play();
                 switch (other.gameObject.tag)
                 {
                     case "Terminal1":
@@ -83,24 +85,21 @@ public class Hacking : MonoBehaviour
     {
         if (win)
         {
+            doorOpen.Play();
             switch (minigameCode)
             {
                 case 1:
                     door1.transform.position += new Vector3(0f, -10f, 0f);
-                    AudioSource.PlayClipAtPoint(doorAudio, transform.position); // Plays Door Opening Audio
                     break;
                 case 2:
                     door2.transform.position += new Vector3(0f, -10f, 0f);
-                    AudioSource.PlayClipAtPoint(doorAudio, transform.position); // Plays Door Opening Audio
                     break;
                 case 3:
                     door3.transform.position += new Vector3(0f, -10f, 0f);
-                    AudioSource.PlayClipAtPoint(doorAudio, transform.position); // Plays Door Opening Audio
                     break;
                 case 4:
                     door4.transform.position += new Vector3(0f, -10f, 0f);
                     door4_2.transform.position += new Vector3(0f, -10f, 0f);
-                    AudioSource.PlayClipAtPoint(doorAudio, transform.position); // Plays Door Opening Audio
                     if (SceneManager.GetActiveScene().buildIndex == 2)
                     {
                         door4_3.transform.position += new Vector3(0f, -10f, 0f);
@@ -108,31 +107,25 @@ public class Hacking : MonoBehaviour
                         door4_5.transform.position += new Vector3(0f, -10f, 0f);
                         door4_6.transform.position += new Vector3(0f, -10f, 0f);
                         door4_7.transform.position += new Vector3(0f, -10f, 0f);
-                        AudioSource.PlayClipAtPoint(doorAudio, transform.position); // Plays Door Opening Audio
                     }
                     break;
                 case 5:
                     door5.transform.position += new Vector3(0f, -10f, 0f);
-                    AudioSource.PlayClipAtPoint(doorAudio, transform.position); // Plays Door Opening Audio
                     if (SceneManager.GetActiveScene().buildIndex == 0)
                     {
                         door5_2.transform.position += new Vector3(0f, -10f, 0f);
-                        AudioSource.PlayClipAtPoint(doorAudio, transform.position); // Plays Door Opening Audio
                     }
                     break;
                 case 6:
                     door6.transform.position += new Vector3(0f, -10f, 0f);
-                    AudioSource.PlayClipAtPoint(doorAudio, transform.position); // Plays Door Opening Audio
                     if (SceneManager.GetActiveScene().buildIndex == 0)
                     {
                         door6_2.transform.position += new Vector3(0f, -10f, 0f);
                         door6_3.transform.position += new Vector3(0f, -10f, 0f);
-                        AudioSource.PlayClipAtPoint(doorAudio, transform.position); // Plays Door Opening Audio
                     }
                     break;
                 case 7:
                     door7.transform.position += new Vector3(0f, -10f, 0f);
-                    AudioSource.PlayClipAtPoint(doorAudio, transform.position); // Plays Door Opening Audio
                     break;
             }
         }

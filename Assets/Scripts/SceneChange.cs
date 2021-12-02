@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneChange : MonoBehaviour
 {
+    [SerializeField] private AudioSource endingTheme;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +29,9 @@ public class SceneChange : MonoBehaviour
                     break;
                 case "Level 2":
                     SceneManager.LoadScene("Level 3");
+                    break;
+                case "Level 5":
+                    endingTheme.Play();
                     break;
             }
         }
