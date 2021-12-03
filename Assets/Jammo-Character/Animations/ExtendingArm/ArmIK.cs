@@ -29,11 +29,17 @@ public class ArmIK : MonoBehaviour
     public float angleLimit = 90.0f;
     public float distanceLimit = 1.5f;
 
+    //Checks to see which Jammo state is active
+    private PartManagement state;
+    private AbilityManager ab;
+
     // Start is called before the first frame update
     void Start()
     {
         movement = this.GetComponent<ThirdPersonMovement>();
         anim = movement.getAnimator();
+        state = this.GetComponentInChildren<PartManagement>();
+        ab = this.GetComponent<AbilityManager>();
 
         /* boneTransforms = new Transform[humanBones.Length];
         for(int i = 0; i < boneTransforms.Length; i++)
@@ -53,17 +59,22 @@ public class ArmIK : MonoBehaviour
         
 
         anim = movement.getAnimator();
+        Debug.Log(anim);
         for(int i = 0; i < iterations; i++)
         {
-            if(anim.GetBool("shoot"))
+            if((state.isJammoStateActive(0) || state.isJammoStateActive(2)) && ab.armCode == 2)
             {
-                //delay(1.0f);
-                //Transform bone = boneTransforms[b];
-                anim.SetBool("shoot", true);
+                if(anim.GetBool("shoot"))
+                {
+                    //delay(1.0f);
+                    //Transform bone = boneTransforms[b];
+                    anim.SetBool("shoot", true);
+                }
+                
+                AimAtTarget(Shoulderbone, targetPosition, weight); //Put back in if statement later
+                AimAtTarget(Head, targetPosition, weight);
             }
             
-            AimAtTarget(Shoulderbone, targetPosition, weight); //Put back in if statement later
-            AimAtTarget(Head, targetPosition, weight);
         }
     }
 

@@ -348,5 +348,4 @@ public class PartManagement : MonoBehaviour
     {
         return jammoState[state].activeSelf;
     }
-
 }
