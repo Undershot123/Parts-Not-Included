@@ -43,7 +43,7 @@ public class ArmIK : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        //setActiveJammoRigs();
+        setActiveJammoRigs();
         if(aimTransform == null || targetTransform == null)
         {
             return;

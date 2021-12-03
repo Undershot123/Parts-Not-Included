@@ -23,12 +23,14 @@ public class ExtendingArms : MonoBehaviour
     private ThirdPersonMovement movement;
     private Animator anim;
     private int shootHash;
+    private Transform Shoulderbone;
 
     // Start is called before the first frame update
     void Start()
     {
         movement = this.transform.parent.GetComponent<ThirdPersonMovement>();
         shootHash = Animator.StringToHash("shoot");
+        //Shoulderbone = this.transform.Find("Jammo_Player/Armature.001/mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:RightShoulder/mixamorig:RightArm/mixamorig:RightForeArm");
     }
 
     // Update is called once per frame
@@ -45,7 +47,6 @@ public class ExtendingArms : MonoBehaviour
             startPos = arm.transform.position;
             anim = movement.getAnimator();
             anim.SetBool(shootHash, true);
-            Debug.Log(anim.GetBool(shootHash));
             //Debug.Log("GEtting input, start at " + startTime + " with position " + startPos);
         }
     }
@@ -74,6 +75,7 @@ public class ExtendingArms : MonoBehaviour
             float currentDistance = (Time.time - startTime) * armSpeed;
             float fraction = currentDistance / distance;
             arm.transform.position = Vector3.Lerp(startPos, hit.point, fraction);
+            //Shoulderbone.transform.position = Vector3.Lerp(startPos, hit.point, fraction);
             if (Vector3.Distance(arm.transform.position, hit.point) < 0.00001f)
             {
                 hitSomething = false;
