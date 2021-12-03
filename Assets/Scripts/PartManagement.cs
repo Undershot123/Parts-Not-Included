@@ -348,4 +348,9 @@ public class PartManagement : MonoBehaviour
     {
         return jammoState[state].activeSelf;
     }
+
+    public GameObject getJammoState(int state)
+    {
+        return jammoState[state];
+    }
 }

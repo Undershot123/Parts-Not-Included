@@ -2,12 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class HumanBone
-{
-    public HumanBodyBones bone;
-}
-
 public class ArmIK : MonoBehaviour
 {
     //This script reassigns the position of Jammo's body to make him aim towards the object
@@ -15,7 +9,6 @@ public class ArmIK : MonoBehaviour
 
     public Transform targetTransform; //Empty object that Jammo's arm extends towards
     public Transform aimTransform; //Raycast node found in Jammo's forearm
-    public Transform aimHead;
 
     private ThirdPersonMovement movement;
     private Animator anim;
@@ -24,6 +17,7 @@ public class ArmIK : MonoBehaviour
     [Range(0,1)]
     public float weight = 1.0f;
 
+    [SerializeField]
     public Transform Shoulderbone;
     public Transform Head;
     public float angleLimit = 90.0f;
@@ -32,6 +26,7 @@ public class ArmIK : MonoBehaviour
     //Checks to see which Jammo state is active
     private PartManagement state;
     private AbilityManager ab;
+    private GameObject activeState;
 
     // Start is called before the first frame update
     void Start()
@@ -40,17 +35,15 @@ public class ArmIK : MonoBehaviour
         anim = movement.getAnimator();
         state = this.GetComponentInChildren<PartManagement>();
         ab = this.GetComponent<AbilityManager>();
+        activeState = state.getJammoState(0);
 
-        /* boneTransforms = new Transform[humanBones.Length];
-        for(int i = 0; i < boneTransforms.Length; i++)
-        {
-            boneTransforms[i] = anim.GetBoneTransform(humanBones[i].bone);
-        } */
+        
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
+        //setActiveJammoRigs();
         if(aimTransform == null || targetTransform == null)
         {
             return;
@@ -69,9 +62,10 @@ public class ArmIK : MonoBehaviour
                     //delay(1.0f);
                     //Transform bone = boneTransforms[b];
                     anim.SetBool("shoot", true);
+                    AimAtTarget(Shoulderbone, targetPosition, weight); //Put back in if statement later
                 }
                 
-                AimAtTarget(Shoulderbone, targetPosition, weight); //Put back in if statement later
+                
                 AimAtTarget(Head, targetPosition, weight);
             }
             
@@ -119,5 +113,26 @@ public class ArmIK : MonoBehaviour
     public void SetAimTransform(Transform aim)
     {
         aimTransform = aim;
+    }
+
+    //Sets Jammo's shoulder and head to point towards the camera's direction
+    //Checks to see if Base Jammo or Legless Jammo are active
+    private void setActiveJammoRigs()
+    {
+        //Base Jammo is active
+        if(state.isJammoStateActive(0))
+        {
+            Shoulderbone = this.transform.Find("Jammo_Player/Armature.001/mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:RightShoulder");
+            Head = this.transform.Find("Jammo_Player/Armature.001/mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:Neck/mixamorig:Head");
+            aimTransform = this.transform.Find("Jammo_Player/Armature.001/mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:Neck/mixamorig:Head");
+        }
+
+        //Legless Jammo is active
+        else if(state.isJammoStateActive(2))
+        {
+            Shoulderbone = this.transform.Find("Jammo_Legless/Armature.001/mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:RightShoulder");
+            Head = this.transform.Find("Jammo_Legless/Armature.001/mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:Neck/mixamorig:Head");
+            aimTransform = this.transform.Find("Jammo_Legless/Armature.001/mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:Neck/mixamorig:Head");
+        }
     }
 }
