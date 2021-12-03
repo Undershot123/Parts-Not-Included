@@ -190,6 +190,11 @@ public class PartManagement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.layer == 30)
+        {
+            Debug.Log("testing");
+        }
+
         if (other.gameObject.layer == 8 && destroying)
         {
             GameObject.Destroy(other.gameObject);
