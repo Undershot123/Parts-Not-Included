@@ -8,6 +8,7 @@ public class ExtendingArms : MonoBehaviour
     public AbilityManager ab;
     public float armSpeed;
     [SerializeField] private GameObject arm;
+    [SerializeField] private GameObject fist;
     [SerializeField] private GameObject cam;
     [SerializeField] private GameObject player;
     private bool fired = false;
@@ -84,6 +85,7 @@ public class ExtendingArms : MonoBehaviour
             float fraction = currentDistance / distance;
             arm.transform.position = Vector3.Lerp(startPos, hit.point, fraction);
             movement.enabled = false;
+            fist.SetActive(true);
             MainCamera.SetActive(false);
             ArmCamera.SetActive(true);
             if (Vector3.Distance(arm.transform.position, hit.point) < 0.00001f)
@@ -114,6 +116,7 @@ public class ExtendingArms : MonoBehaviour
                 movement.enabled = true;
                 MainCamera.SetActive(true);
                 ArmCamera.SetActive(false);
+                fist.SetActive(false);
                 retracting = false;
                 canFire = true;
                 arm.transform.position = player.transform.position + new Vector3(0.75f, -0.32f, 0f);
