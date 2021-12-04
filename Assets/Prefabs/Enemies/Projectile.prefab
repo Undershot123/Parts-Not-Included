@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 425289826949855714}
   - component: {fileID: 2477013524620622572}
   - component: {fileID: 6127338206191338346}
+  - component: {fileID: 1131329878275309653}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
@@ -75,6 +76,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1131329878275309653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7225835777698277461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a4731fe34530f140a11d54482ca685c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 50
+  attackDamage: 15
+  attackTimer: 3
+  speed: 3
+  armor: 0
+  range: 0
+  roboDeath: {fileID: 8300000, guid: 47e28c182dd9e1c4e8b5cf86f7a6111b, type: 3}
+  roboHitSound: {fileID: 0}
+  enemyName: Echo
 --- !u!1001 &7225835778862516449
 PrefabInstance:
   m_ObjectHideFlags: 0

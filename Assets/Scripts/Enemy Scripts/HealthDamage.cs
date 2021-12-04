@@ -32,47 +32,11 @@ public class HealthDamage : MonoBehaviour
         if (enemyName == "Player" && health <= 0f) {
             Debug.Log("<color=red>Jammo is dead, game over.</color>");
         }
-        if (health <= 0f)
+        else if (health <= 0f)
         {
             AudioSource.PlayClipAtPoint(roboDeath, transform.position); // Plays Robot Death noise when dead
 
             gameObject.SetActive(false);
-            
-            
-        }
-
-        // For movement, AI pathing, and attacking
-        // Potentially switch to something more efficient than Update()
-        switch (enemyName) {
-            case "Alpha":
-                // attackDamage
-                // attackTimer
-                // speed
-                break;
-
-            case "Bravo":
-                // attackDamage
-                // attackTimer
-                // speed
-                break;
-
-            case "Echo":
-                // attackDamage
-                // attackTimer
-                // speed
-                break;
-
-            case "Foxtrot":
-                // attackDamage
-                // attackTimer
-                // speed
-                break;
-
-            case "Kilo":
-                // attackDamage
-                // attackTimer
-                // speed
-                break;
         }
     }
 
@@ -81,7 +45,7 @@ public class HealthDamage : MonoBehaviour
             Debug.Log("<color=red>Player is attacked by enemy " + enemyName + ", dealing " + attackDamage + " damage</color>");
             other.gameObject.GetComponent<HealthDamage>().TakeDamage(attackDamage);
         } else if(other.gameObject.GetComponent<HealthDamage>() != null) {
-            TakeDamage(gameObject.GetComponent<HealthDamage>().attackDamage);
+            TakeDamage(other.gameObject.GetComponent<HealthDamage>().attackDamage);
         }
     }
 
