@@ -7,9 +7,18 @@ public class SceneChange : MonoBehaviour
 {
     [SerializeField] private AudioSource endingTheme;
 
+    [SerializeField] private AudioSource elevatorMusic;
+
+    [SerializeField] private AudioSource BackgroundMusic;
+
+    [SerializeField] private AudioSource walkUp;
+
     // Start is called before the first frame update
     void Start()
     {
+
+        elevatorMusic.Play();
+        BackgroundMusic.Play();
     }
 
     // Update is called once per frame
@@ -34,9 +43,18 @@ public class SceneChange : MonoBehaviour
                     SceneManager.LoadScene("Level 5");
                     break;
                 case "Level 5":
+                   
                     endingTheme.Play();
+                    BackgroundMusic.Stop();
+                    walkUp.Stop();
                     break;
             }
+        }
+          if (other.gameObject.layer == 13)
+        {
+            //Plays music on long walkup to finale
+                 walkUp.Play();
+                 BackgroundMusic.Stop();
         }
     }
 

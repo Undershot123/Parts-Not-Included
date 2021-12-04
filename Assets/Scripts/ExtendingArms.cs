@@ -25,6 +25,8 @@ public class ExtendingArms : MonoBehaviour
     private int shootHash;
     private Transform Shoulderbone;
 
+    [SerializeField] private AudioSource extendingArmSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,12 +44,15 @@ public class ExtendingArms : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Mouse0) && canFire)
         {
+            
+
             fired = true;
             startTime = Time.time;
             startPos = arm.transform.position;
             anim = movement.getAnimator();
             anim.SetBool(shootHash, true);
             //Debug.Log("GEtting input, start at " + startTime + " with position " + startPos);
+            extendingArmSound.Play();
         }
     }
 

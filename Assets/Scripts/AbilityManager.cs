@@ -11,6 +11,8 @@ public class AbilityManager : MonoBehaviour
     private GameObject[] jammoState = new GameObject[5];
     private PartManagement jammoUpdate;
 
+    [SerializeField] private AudioSource speedLegsSound;
+    [SerializeField] private AudioSource SuperJumpSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -96,11 +98,13 @@ public class AbilityManager : MonoBehaviour
                     Debug.Log("Speed Legs Equipped");
                     move.changeMovementSpeed(8.0f);
                     jump.changeJumpHeight(1.5f);
+                    speedLegsSound.Play();
                     break;
                 case 2:
                     Debug.Log("Super Jump Legs Equipped");
                     jump.changeJumpHeight(3.0f);
                     move.changeMovementSpeed(4.0f);
+                    SuperJumpSound.Play();
                     break;
                 default:
                     break; //nothing happens

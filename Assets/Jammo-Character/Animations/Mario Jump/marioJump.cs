@@ -30,6 +30,8 @@ public class marioJump : MonoBehaviour
 
 	private Animator anim;
 
+    //Audio
+    [SerializeField] private AudioSource RegularJumpSound; 
 
     //Variables to store optomized setter/getter parameter IDs
     int isJumpingHash;
@@ -189,7 +191,10 @@ public class marioJump : MonoBehaviour
             currentRunMovement.y = nextYVelocity;       */ 
 
             currentMovement.y = initialJumpVelocity;
-            appliedMovement.y = initialJumpVelocity;     
+            appliedMovement.y = initialJumpVelocity;    
+
+            RegularJumpSound.Play();
+
         } else if(!isJumpPressed && isJumping && controller.isGrounded){
             isJumping = false;
         }

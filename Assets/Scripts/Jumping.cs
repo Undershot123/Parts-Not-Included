@@ -11,6 +11,9 @@ public class Jumping : MonoBehaviour
     private float speed;
     private float startTime;
     private float startPos;
+
+    [SerializeField] private AudioSource jumpSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +28,7 @@ public class Jumping : MonoBehaviour
             jump = true;
             startTime = Time.time;
             startPos = transform.position.y;
+            jumpSound.Play();
         }
     }
 

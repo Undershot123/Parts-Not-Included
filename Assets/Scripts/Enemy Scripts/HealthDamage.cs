@@ -15,6 +15,8 @@ public class HealthDamage : MonoBehaviour
 
     public AudioClip roboDeath; // Creates an AudioClip object for the robot death
 
+    [SerializeField] private AudioSource roboHitSound; 
+    
     // Name of the enemy
     public string enemyName;
     
@@ -99,5 +101,6 @@ public class HealthDamage : MonoBehaviour
     public void TakeDamage(float damage) {
         Debug.Log("<color=green>" + enemyName + " was attacked by the player, dealing " + damage + " damage</color>");
         health -= damage;
+        roboHitSound.Play(); 
     }
 }
