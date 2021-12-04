@@ -32,7 +32,6 @@ public class ExtendingArms : MonoBehaviour
     {
         movement = this.transform.parent.GetComponent<ThirdPersonMovement>();
         shootHash = Animator.StringToHash("shoot");
-        //Shoulderbone = this.transform.Find("Jammo_Player/Armature.001/mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:RightShoulder/mixamorig:RightArm/mixamorig:RightForeArm");
     }
 
     // Update is called once per frame
@@ -80,7 +79,7 @@ public class ExtendingArms : MonoBehaviour
             float currentDistance = (Time.time - startTime) * armSpeed;
             float fraction = currentDistance / distance;
             arm.transform.position = Vector3.Lerp(startPos, hit.point, fraction);
-            //Shoulderbone.transform.position = Vector3.Lerp(startPos, hit.point, fraction);
+            movement.enabled = false;
             if (Vector3.Distance(arm.transform.position, hit.point) < 0.00001f)
             {
                 hitSomething = false;
@@ -106,6 +105,7 @@ public class ExtendingArms : MonoBehaviour
             }
             if (Vector3.Distance(arm.transform.position, goalPos) < 0.00001f)
             {
+                movement.enabled = true;
                 retracting = false;
                 canFire = true;
                 arm.transform.position = player.transform.position + new Vector3(0.75f, -0.32f, 0f);

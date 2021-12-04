@@ -52,7 +52,6 @@ public class ArmIK : MonoBehaviour
         
 
         anim = movement.getAnimator();
-        Debug.Log(anim);
         for(int i = 0; i < iterations; i++)
         {
             if((state.isJammoStateActive(0) || state.isJammoStateActive(2)) && ab.armCode == 2)
