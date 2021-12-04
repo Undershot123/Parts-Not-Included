@@ -28,7 +28,7 @@ public class EnemyPathing : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
 
-        healthDamage = GetComponent<HealthDamage>();
+        healthDamage = GetComponentInChildren<HealthDamage>();
     }
 
     // Update is called once per frame
