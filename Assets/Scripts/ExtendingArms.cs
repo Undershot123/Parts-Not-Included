@@ -23,7 +23,11 @@ public class ExtendingArms : MonoBehaviour
     private ThirdPersonMovement movement;
     private Animator anim;
     private int shootHash;
-    private Transform Shoulderbone;
+    
+    [SerializeField]
+    private GameObject MainCamera;
+    [SerializeField]
+    private GameObject ArmCamera;
 
     [SerializeField] private AudioSource extendingArmSound;
 
@@ -80,6 +84,8 @@ public class ExtendingArms : MonoBehaviour
             float fraction = currentDistance / distance;
             arm.transform.position = Vector3.Lerp(startPos, hit.point, fraction);
             movement.enabled = false;
+            MainCamera.SetActive(false);
+            ArmCamera.SetActive(true);
             if (Vector3.Distance(arm.transform.position, hit.point) < 0.00001f)
             {
                 hitSomething = false;
@@ -106,6 +112,8 @@ public class ExtendingArms : MonoBehaviour
             if (Vector3.Distance(arm.transform.position, goalPos) < 0.00001f)
             {
                 movement.enabled = true;
+                MainCamera.SetActive(true);
+                ArmCamera.SetActive(false);
                 retracting = false;
                 canFire = true;
                 arm.transform.position = player.transform.position + new Vector3(0.75f, -0.32f, 0f);
