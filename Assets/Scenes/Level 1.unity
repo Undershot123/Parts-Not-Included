@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 278183e5213c1ad45960bf2d8744cfeb, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -2581,11 +2581,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8048235893666612059, guid: f17e79ea55cbede478065f9ccd8ec18e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000017121593
+      value: -0.000000017121588
       objectReference: {fileID: 0}
     - target: {fileID: 8048235893666612059, guid: f17e79ea55cbede478065f9ccd8ec18e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000017904167
+      value: 0.0000000017904164
       objectReference: {fileID: 0}
     - target: {fileID: 8048235893666612059, guid: f17e79ea55cbede478065f9ccd8ec18e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -19325,11 +19325,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 897932006545501043, guid: 335f0a979ed780c44b3edffe59a546e9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000017112876
+      value: -0.000000017112873
       objectReference: {fileID: 0}
     - target: {fileID: 897932006545501043, guid: 335f0a979ed780c44b3edffe59a546e9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000017913536
+      value: 0.0000000017913533
       objectReference: {fileID: 0}
     - target: {fileID: 1578364589526271930, guid: 335f0a979ed780c44b3edffe59a546e9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19437,11 +19437,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3489375011030882046, guid: 335f0a979ed780c44b3edffe59a546e9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000017076385
+      value: 0.000000015987313
       objectReference: {fileID: 0}
     - target: {fileID: 3489375011030882046, guid: 335f0a979ed780c44b3edffe59a546e9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000002102199
+      value: -0.0000000019681283
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 335f0a979ed780c44b3edffe59a546e9, type: 3}
@@ -25263,6 +25263,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endingTheme: {fileID: 0}
   elevatorMusic: {fileID: 0}
+  BackgroundMusic: {fileID: 0}
+  walkUp: {fileID: 0}
 --- !u!64 &1419284891
 MeshCollider:
   m_ObjectHideFlags: 0
