@@ -99,7 +99,7 @@ public class Hacking : MonoBehaviour
                 case 4:
                     door4.transform.position += new Vector3(0f, -10f, 0f);
                     door4_2.transform.position += new Vector3(0f, -10f, 0f);
-                    if (SceneManager.GetActiveScene().buildIndex == 2 || SceneManager.GetActiveScene().buildIndex == 3)
+                    if (SceneManager.GetActiveScene().buildIndex == 5 || SceneManager.GetActiveScene().buildIndex == 6)
                     {
                         door4_3.transform.position += new Vector3(0f, -10f, 0f);
                     }
@@ -113,14 +113,14 @@ public class Hacking : MonoBehaviour
                     break;
                 case 5:
                     door5.transform.position += new Vector3(0f, -10f, 0f);
-                    if (SceneManager.GetActiveScene().buildIndex == 0)
+                    if (SceneManager.GetActiveScene().buildIndex == 3)
                     {
                         door5_2.transform.position += new Vector3(0f, -10f, 0f);
                     }
                     break;
                 case 6:
                     door6.transform.position += new Vector3(0f, -10f, 0f);
-                    if (SceneManager.GetActiveScene().buildIndex == 0)
+                    if (SceneManager.GetActiveScene().buildIndex == 3)
                     {
                         door6_2.transform.position += new Vector3(0f, -10f, 0f);
                         door6_3.transform.position += new Vector3(0f, -10f, 0f);
@@ -134,13 +134,13 @@ public class Hacking : MonoBehaviour
         minigameCam1.enabled = false;
         minigameCam2.enabled = false;
         minigameCam3.enabled = false;
-        if (SceneManager.GetActiveScene().buildIndex == 0 || SceneManager.GetActiveScene().buildIndex == 2 || SceneManager.GetActiveScene().buildIndex == 3)
+        if (SceneManager.GetActiveScene().buildIndex == 3 || SceneManager.GetActiveScene().buildIndex == 5 || SceneManager.GetActiveScene().buildIndex == 6)
         {
             minigameCam4.enabled = false;
             minigameCam5.enabled = false;
             minigameCam6.enabled = false;
         }
-        if (SceneManager.GetActiveScene().buildIndex == 2)
+        if (SceneManager.GetActiveScene().buildIndex == 5)
         {
             minigameCam7.enabled = false;
         }
