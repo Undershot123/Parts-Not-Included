@@ -41,7 +41,6 @@ public class Hacking : MonoBehaviour
                 switch (other.gameObject.tag)
                 {
                     case "Terminal1":
-                        Debug.Log("got here");
                         minigameCam1.enabled = true;
                         minigameCode = 1;
                         break;
@@ -135,7 +134,7 @@ public class Hacking : MonoBehaviour
         minigameCam1.enabled = false;
         minigameCam2.enabled = false;
         minigameCam3.enabled = false;
-        if (SceneManager.GetActiveScene().buildIndex == 0 || SceneManager.GetActiveScene().buildIndex == 2)
+        if (SceneManager.GetActiveScene().buildIndex == 0 || SceneManager.GetActiveScene().buildIndex == 2 || SceneManager.GetActiveScene().buildIndex == 3)
         {
             minigameCam4.enabled = false;
             minigameCam5.enabled = false;
