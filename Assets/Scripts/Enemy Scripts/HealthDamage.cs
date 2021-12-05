@@ -16,6 +16,8 @@ public class HealthDamage : MonoBehaviour
     public AudioClip roboDeath; // Creates an AudioClip object for the robot death
 
     [SerializeField] private AudioSource roboHitSound; 
+
+    private ParticleSystem particle;
     
     // Name of the enemy
     public string enemyName;
@@ -23,7 +25,7 @@ public class HealthDamage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        particle = GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -44,6 +46,7 @@ public class HealthDamage : MonoBehaviour
         if(other.gameObject.tag == "Player") {
             Debug.Log("<color=red>Player is attacked by enemy " + enemyName + ", dealing " + attackDamage + " damage</color>");
             other.gameObject.GetComponent<HealthDamage>().TakeDamage(attackDamage);
+            particle.Play();
         } else if(other.gameObject.GetComponent<HealthDamage>() != null) {
             TakeDamage(other.gameObject.GetComponent<HealthDamage>().attackDamage);
         }
