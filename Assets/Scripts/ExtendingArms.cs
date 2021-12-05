@@ -22,13 +22,17 @@ public class ExtendingArms : MonoBehaviour
     private RaycastHit hit;
 
     private ThirdPersonMovement movement;
+    private PartManagement jammoState;
     private Animator anim;
     private int shootHash;
     
+    //Used for the Jammo's fist when fired
     [SerializeField]
     private GameObject MainCamera;
     [SerializeField]
     private GameObject ArmCamera;
+
+    private float timer;
 
     [SerializeField] private AudioSource extendingArmSound;
 
@@ -36,6 +40,7 @@ public class ExtendingArms : MonoBehaviour
     void Start()
     {
         movement = this.transform.parent.GetComponent<ThirdPersonMovement>();
+        jammoState = this.transform.parent.GetComponentInChildren<PartManagement>();
         shootHash = Animator.StringToHash("shoot");
     }
 
@@ -46,7 +51,8 @@ public class ExtendingArms : MonoBehaviour
         {
             return;
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0) && canFire)
+        //Only allows for player to shoot if Base Jammo or legless jammo are active
+        if (Input.GetKeyDown(KeyCode.Mouse0) && canFire && (jammoState.getJammoState(0).activeSelf || jammoState.getJammoState(2).activeSelf))
         {
             
 
@@ -81,6 +87,7 @@ public class ExtendingArms : MonoBehaviour
         }
         if (hitSomething)
         {
+            timer += Time.deltaTime;
             float currentDistance = (Time.time - startTime) * armSpeed;
             float fraction = currentDistance / distance;
             arm.transform.position = Vector3.Lerp(startPos, hit.point, fraction);
@@ -88,7 +95,7 @@ public class ExtendingArms : MonoBehaviour
             fist.SetActive(true);
             MainCamera.SetActive(false);
             ArmCamera.SetActive(true);
-            if (Vector3.Distance(arm.transform.position, hit.point) < 0.00001f)
+            if (Vector3.Distance(arm.transform.position, hit.point) < 0.00001f || timer > 5.0f)
             {
                 hitSomething = false;
                 retracting = true;
@@ -111,8 +118,9 @@ public class ExtendingArms : MonoBehaviour
                 Debug.Log("hit object " + hit.collider.gameObject.name);
                 hit.collider.gameObject.GetComponent<HealthDamage>().TakeDamage(25f);
             }
-            if (Vector3.Distance(arm.transform.position, goalPos) < 0.00001f)
+            if (Vector3.Distance(arm.transform.position, goalPos) < 0.00001f || timer > 5.0f)
             {
+                timer = 0f;
                 movement.enabled = true;
                 MainCamera.SetActive(true);
                 ArmCamera.SetActive(false);
