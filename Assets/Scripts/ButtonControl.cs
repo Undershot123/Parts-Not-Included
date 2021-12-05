@@ -8,26 +8,17 @@ public class ButtonControl : MonoBehaviour
     // Start is called before the first frame update
     public void PlayGame()
     {
-        Debug.Log("Play Game");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
     }
 
     public void InfoScreen()
     {
-        Debug.Log("Go to Info");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void Back()
     {
-        Debug.Log("Back");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-    }
-
-    public void Next()
-    {
-        Debug.Log("Next");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void QuitGame()
