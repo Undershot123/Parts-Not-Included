@@ -1,6 +1,11 @@
 fileFormatVersion: 2
-guid: 72b1214ea9104774ba6e12bf199633ca
+<<<<<<< Updated upstream:Assets/Jammo-Character/Prefabs/Jammo_Fist.prefab.meta
+guid: 54f7692ee764e7a49aa4a85e1b6cb71f
 PrefabImporter:
+=======
+guid: 0c9e8c92f6edb5f47b15f2bcefc3bb62
+DefaultImporter:
+>>>>>>> Stashed changes:Assets/Scenes/Info Menu.unity.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Handles all health and damage related functions for the enemies. 
@@ -33,6 +34,7 @@ public class HealthDamage : MonoBehaviour
     {
         if (enemyName == "Player" && health <= 0f) {
             Debug.Log("<color=red>Jammo is dead, game over.</color>");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         else if (health <= 0f)
         {
@@ -46,7 +48,7 @@ public class HealthDamage : MonoBehaviour
         if(other.gameObject.tag == "Player") {
             Debug.Log("<color=red>Player is attacked by enemy " + enemyName + ", dealing " + attackDamage + " damage</color>");
             other.gameObject.GetComponent<HealthDamage>().TakeDamage(attackDamage);
-            particle.Play();
+            //particle.Play();
         } else if(other.gameObject.GetComponent<HealthDamage>() != null) {
             TakeDamage(other.gameObject.GetComponent<HealthDamage>().attackDamage);
         }
@@ -68,6 +70,6 @@ public class HealthDamage : MonoBehaviour
     public void TakeDamage(float damage) {
         Debug.Log("<color=green>" + enemyName + " was attacked by the player, dealing " + damage + " damage</color>");
         health -= damage;
-        roboHitSound.Play(); 
+        if(roboHitSound != null) roboHitSound.Play(); 
     }
 }

@@ -1,6 +1,10 @@
 fileFormatVersion: 2
-guid: 93951d92e4416f044b68098be525b2d0
+<<<<<<< Updated upstream:Assets/Scenes/Level 1.meta
+guid: 8ce891674ff14e3499ba6e28ac7dea8c
 folderAsset: yes
+=======
+guid: 94b79026e553d624181d735d94e5e012
+>>>>>>> Stashed changes:Assets/Scenes/Controls Menu.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

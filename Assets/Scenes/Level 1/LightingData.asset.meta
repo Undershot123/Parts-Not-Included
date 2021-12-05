@@ -1,8 +1,15 @@
 fileFormatVersion: 2
-guid: 278183e5213c1ad45960bf2d8744cfeb
+<<<<<<< Updated upstream:Assets/Scenes/Level 1/LightingData.asset.meta
+guid: 3fdd69b2dcebda74cb62f2273684ff2c
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 112000000
+=======
+guid: cf556546e1a72a54e84f1a633e597023
+timeCreated: 1468190837
+licenseType: Store
+DefaultImporter:
+>>>>>>> Stashed changes:Assets/sumPause/LICENSE.meta
   userData: 
   assetBundleName: 
   assetBundleVariant: 
