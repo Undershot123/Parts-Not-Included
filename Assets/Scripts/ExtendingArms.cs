@@ -22,6 +22,7 @@ public class ExtendingArms : MonoBehaviour
     private RaycastHit hit;
 
     private ThirdPersonMovement movement;
+    private PartManagement jammoState;
     private Animator anim;
     private int shootHash;
     
@@ -39,6 +40,7 @@ public class ExtendingArms : MonoBehaviour
     void Start()
     {
         movement = this.transform.parent.GetComponent<ThirdPersonMovement>();
+        jammoState = this.transform.parent.GetComponentInChildren<PartManagement>();
         shootHash = Animator.StringToHash("shoot");
     }
 
@@ -49,7 +51,8 @@ public class ExtendingArms : MonoBehaviour
         {
             return;
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0) && canFire)
+        //Only allows for player to shoot if Base Jammo or legless jammo are active
+        if (Input.GetKeyDown(KeyCode.Mouse0) && canFire && (jammoState.getJammoState(0).activeSelf || jammoState.getJammoState(2).activeSelf))
         {
             
 
