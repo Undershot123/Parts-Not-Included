@@ -427,6 +427,7 @@ MonoBehaviour:
   ab: {fileID: 3432558753095912622}
   armSpeed: 20
   arm: {fileID: 3432558752613807980}
+  fist: {fileID: 0}
   cam: {fileID: 0}
   player: {fileID: 7415093067415655784}
   MainCamera: {fileID: 0}
@@ -1567,7 +1568,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 539745478100655087, guid: 153c38d7d967fd34c87d3ca7827b3c09, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.3
+      value: -2.98
       objectReference: {fileID: 0}
     - target: {fileID: 539745478100655087, guid: 153c38d7d967fd34c87d3ca7827b3c09, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1989,7 +1990,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 539745478100655087, guid: c15836412041a554b94d0c3771412103, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.86
+      value: -4.2
       objectReference: {fileID: 0}
     - target: {fileID: 539745478100655087, guid: c15836412041a554b94d0c3771412103, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3057,10 +3058,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7635726066119915157, guid: c15836412041a554b94d0c3771412103, type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'Armature.001'\n\tFrom animation clip 'Standing
-        React Death Backward'"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7678658565353738172, guid: c15836412041a554b94d0c3771412103, type: 3}
       propertyPath: m_Layer
@@ -3808,7 +3806,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 539745478100655087, guid: 806e1a8b0a9ecc84eaec17a1a99f08ba, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.82
+      value: -2.74
       objectReference: {fileID: 0}
     - target: {fileID: 539745478100655087, guid: 806e1a8b0a9ecc84eaec17a1a99f08ba, type: 3}
       propertyPath: m_LocalPosition.z
