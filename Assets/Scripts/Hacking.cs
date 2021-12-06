@@ -15,6 +15,8 @@ public class Hacking : MonoBehaviour
     [SerializeField] private GameObject door1, door2, door3, door4, door4_2, door4_3, door4_4, door4_5, door4_6, door4_7, door5, door5_2, door6, door6_2, door6_3, door7;
 
     [SerializeField] private AudioSource doorOpen, hackingStart;
+    [SerializeField] private GameObject UI;
+    [SerializeField] private GameObject tooltip;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +27,14 @@ public class Hacking : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (inMinigame)
+        {
+            UI.SetActive(false);
+        }
+        else
+        {
+            UI.SetActive(true);
+        }
         if (inMinigame && Input.GetKeyDown(KeyCode.Escape))
         {
             BackToGame(false);
@@ -35,6 +45,7 @@ public class Hacking : MonoBehaviour
     {
         if (other.gameObject.layer == 10)
         {
+            tooltip.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E) && !inMinigame)
             {
                 hackingStart.Play();
@@ -79,6 +90,15 @@ public class Hacking : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.layer == 10)
+        {
+            tooltip.SetActive(false);
+        }
+    }
+
 
     public void BackToGame(bool win)
     {

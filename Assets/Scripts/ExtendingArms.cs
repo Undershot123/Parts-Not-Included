@@ -35,6 +35,7 @@ public class ExtendingArms : MonoBehaviour
     private float timer;
 
     [SerializeField] private AudioSource extendingArmSound;
+    [SerializeField] private GameObject crosshairs;
 
     // Start is called before the first frame update
     void Start()
@@ -49,8 +50,10 @@ public class ExtendingArms : MonoBehaviour
     {
         if (ab.armCode != 2)
         {
+            crosshairs.SetActive(false);
             return;
         }
+        crosshairs.SetActive(true);
         //Only allows for player to shoot if Base Jammo or legless jammo are active
         if (Input.GetKeyDown(KeyCode.Mouse0) && canFire && (jammoState.getJammoState(0).activeSelf || jammoState.getJammoState(2).activeSelf))
         {
