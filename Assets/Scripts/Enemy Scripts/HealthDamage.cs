@@ -19,6 +19,7 @@ public class HealthDamage : MonoBehaviour
     [SerializeField] private AudioSource roboHitSound; 
 
     private ParticleSystem particle;
+    private float timer = 0f;
     
     // Name of the enemy
     public string enemyName;
@@ -42,13 +43,20 @@ public class HealthDamage : MonoBehaviour
 
             gameObject.SetActive(false);
         }
+
+        if(timer > 2.0f)
+        {
+            particle.Stop();
+            timer = 0f;
+        }
     }
 
     private void OnCollisionEnter(Collision other) {
         if(other.gameObject.tag == "Player") {
             Debug.Log("<color=red>Player is attacked by enemy " + enemyName + ", dealing " + attackDamage + " damage</color>");
             other.gameObject.GetComponent<HealthDamage>().TakeDamage(attackDamage);
-            //particle.Play();
+            particle.Play();
+            timer += Time.deltaTime;
         } else if(other.gameObject.GetComponent<HealthDamage>() != null) {
             TakeDamage(other.gameObject.GetComponent<HealthDamage>().attackDamage);
         }
