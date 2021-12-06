@@ -53,7 +53,14 @@ public class ExtendingArms : MonoBehaviour
             crosshairs.SetActive(false);
             return;
         }
-        crosshairs.SetActive(true);
+        if (hitSomething || retracting)
+        {
+            crosshairs.SetActive(false);
+        }
+        else
+        {
+            crosshairs.SetActive(true);
+        }
         //Only allows for player to shoot if Base Jammo or legless jammo are active
         if (Input.GetKeyDown(KeyCode.Mouse0) && canFire && (jammoState.getJammoState(0).activeSelf || jammoState.getJammoState(2).activeSelf))
         {

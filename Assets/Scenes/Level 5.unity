@@ -2718,6 +2718,7 @@ MonoBehaviour:
   range: 0
   roboDeath: {fileID: 0}
   roboHitSound: {fileID: 0}
+  timer: 0
   enemyName: Player
 --- !u!54 &94773702
 Rigidbody:
@@ -41796,6 +41797,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 322581694}
     - target: {fileID: 3432558752613807971, guid: 4cb16cc982d0463458a5c49212f427a5, type: 3}
+      propertyPath: crosshairs
+      value: 
+      objectReference: {fileID: 1889471712}
+    - target: {fileID: 3432558752613807971, guid: 4cb16cc982d0463458a5c49212f427a5, type: 3}
       propertyPath: ignore.m_Bits
       value: 1107395891
       objectReference: {fileID: 0}
@@ -51769,6 +51774,11 @@ GameObject:
 --- !u!1 &1889471711 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6632927773459673404, guid: 68fe58d0692bd6a46ad7ce858ed6f84f, type: 3}
+  m_PrefabInstance: {fileID: 1889471709}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1889471712 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8664779540042946365, guid: 68fe58d0692bd6a46ad7ce858ed6f84f, type: 3}
   m_PrefabInstance: {fileID: 1889471709}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1894194561

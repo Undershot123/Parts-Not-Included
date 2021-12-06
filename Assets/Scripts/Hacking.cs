@@ -123,7 +123,7 @@ public class Hacking : MonoBehaviour
                     {
                         door4_3.transform.position += new Vector3(0f, -10f, 0f);
                     }
-                    if (SceneManager.GetActiveScene().buildIndex == 2)
+                    if (SceneManager.GetActiveScene().buildIndex == 5)
                     {
                         door4_4.transform.position += new Vector3(0f, -10f, 0f);
                         door4_5.transform.position += new Vector3(0f, -10f, 0f);

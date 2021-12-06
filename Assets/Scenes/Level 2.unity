@@ -5269,6 +5269,10 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: -0.9
       objectReference: {fileID: 0}
+    - target: {fileID: 2121423317, guid: 4cb16cc982d0463458a5c49212f427a5, type: 3}
+      propertyPath: mainCam
+      value: 
+      objectReference: {fileID: 774223714}
     - target: {fileID: 87347044738227692, guid: 4cb16cc982d0463458a5c49212f427a5, type: 3}
       propertyPath: m_Layer
       value: 2
@@ -5669,6 +5673,10 @@ PrefabInstance:
       propertyPath: MainCamera
       value: 
       objectReference: {fileID: 774223714}
+    - target: {fileID: 3432558752613807971, guid: 4cb16cc982d0463458a5c49212f427a5, type: 3}
+      propertyPath: crosshairs
+      value: 
+      objectReference: {fileID: 1870872335}
     - target: {fileID: 3432558752613807971, guid: 4cb16cc982d0463458a5c49212f427a5, type: 3}
       propertyPath: ignore.m_Bits
       value: 1107296257
@@ -20543,6 +20551,11 @@ GameObject:
 --- !u!1 &1854239159 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6632927773459673404, guid: 68fe58d0692bd6a46ad7ce858ed6f84f, type: 3}
+  m_PrefabInstance: {fileID: 1854239157}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1870872335 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8664779540042946365, guid: 68fe58d0692bd6a46ad7ce858ed6f84f, type: 3}
   m_PrefabInstance: {fileID: 1854239157}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1875510999
