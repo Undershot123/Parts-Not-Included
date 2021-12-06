@@ -23,6 +23,10 @@ public class HealthDamage : MonoBehaviour
     
     // Name of the enemy
     public string enemyName;
+
+    private ThirdPersonMovement movement;
+    private Animator anim;
+    private float deathTimer;
     
     // Start is called before the first frame update
     void Start()
@@ -35,7 +39,16 @@ public class HealthDamage : MonoBehaviour
     {
         if (enemyName == "Player" && health <= 0f) {
             Debug.Log("<color=red>Jammo is dead, game over.</color>");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            movement = this.transform.parent.GetComponent<ThirdPersonMovement>();
+            anim = movement.getAnimator();
+            anim.SetBool("isDead", true);
+            deathTimer += Time.deltaTime;
+
+            if(deathTimer > 5.0f)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+            
         }
         else if (health <= 0f)
         {
