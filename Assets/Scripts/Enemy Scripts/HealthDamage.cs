@@ -19,6 +19,8 @@ public class HealthDamage : MonoBehaviour
     [SerializeField] private AudioSource roboHitSound; 
 
     private ParticleSystem particle;
+    ParticleSystem.EmissionModule em;
+    [SerializeField]
     private float timer = 0f;
     
     // Name of the enemy
@@ -31,7 +33,8 @@ public class HealthDamage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        particle = GetComponent<ParticleSystem>();
+        particle = this.transform.GetComponentInChildren<ParticleSystem>();
+        particle.Stop();
     }
 
     // Update is called once per frame
@@ -40,6 +43,7 @@ public class HealthDamage : MonoBehaviour
         if (enemyName == "Player" && health <= 0f) {
             Debug.Log("<color=red>Jammo is dead, game over.</color>");
             movement = this.transform.parent.GetComponent<ThirdPersonMovement>();
+            movement.enabled = false;
             anim = movement.getAnimator();
             anim.SetBool("isDead", true);
             deathTimer += Time.deltaTime;
@@ -66,8 +70,8 @@ public class HealthDamage : MonoBehaviour
 
     private void OnCollisionEnter(Collision other) {
         if(other.gameObject.tag == "Player") {
-            Debug.Log("<color=red>Player is attacked by enemy " + enemyName + ", dealing " + attackDamage + " damage</color>");
-            other.gameObject.GetComponent<HealthDamage>().TakeDamage(attackDamage);
+            //Debug.Log("<color=red>Player is attacked by enemy " + enemyName + ", dealing " + attackDamage + " damage</color>");
+            other.gameObject.GetComponentInChildren<HealthDamage>().TakeDamage(attackDamage);
             particle.Play();
             timer += Time.deltaTime;
         } else if(other.gameObject.GetComponent<HealthDamage>() != null) {
