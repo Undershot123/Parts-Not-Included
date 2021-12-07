@@ -51,6 +51,18 @@ public class AbilityManager : MonoBehaviour
             
         }
 
+        if (!jammoUpdate.isJammoStateActive(0) && !jammoUpdate.isJammoStateActive(1))
+        {
+            speTooltip.SetActive(false);
+            jumTooltip.SetActive(false);
+        }
+
+        if (!jammoUpdate.isJammoStateActive(0) && !jammoUpdate.isJammoStateActive(2))
+        {
+            strTooltip.SetActive(false);
+            extTooltip.SetActive(false);
+        }
+
         if (Input.GetKeyDown(KeyCode.Alpha3) && Input.GetKey(KeyCode.Tab))
         { //arms
             armCode++;
