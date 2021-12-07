@@ -18,6 +18,7 @@ TagManager:
   - Terminal5
   - Terminal6
   - Terminal7
+  - music
   layers:
   - Default
   - TransparentFX
