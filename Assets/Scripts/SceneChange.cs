@@ -13,17 +13,36 @@ public class SceneChange : MonoBehaviour
 
     [SerializeField] private AudioSource walkUp;
 
+    private float timer;
+    private bool endGame;
+
     // Start is called before the first frame update
     void Start()
     {
+<<<<<<< Updated upstream
 
         if(elevatorMusic != null) elevatorMusic.Play();
         if(BackgroundMusic != null) BackgroundMusic.Play();
+=======
+        timer = 0f;
+        endGame = false;
+        elevatorMusic.Play();
+        BackgroundMusic.Play();
+>>>>>>> Stashed changes
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (endGame == true)
+        {
+            timer += Time.deltaTime;
+        }
+
+        if (timer >= 43.2f)
+        {
+            SceneManager.LoadScene("EndGame");
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -43,7 +62,7 @@ public class SceneChange : MonoBehaviour
                     SceneManager.LoadScene("Level 4");
                     break;
                 case "Level 4":
-                   
+                    endGame = true;
                     endingTheme.Play();
                     BackgroundMusic.Stop();
                     walkUp.Stop();

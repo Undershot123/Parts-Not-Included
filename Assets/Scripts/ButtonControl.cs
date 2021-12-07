@@ -31,6 +31,18 @@ public class ButtonControl : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void Main()
+    {
+        Debug.Log("Main");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 7);
+    }
+
+    public void Replay()
+    {
+        Debug.Log("Replay");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 4);
+    }
+
     public void QuitGame()
     {
         Debug.Log("Quit Game");
