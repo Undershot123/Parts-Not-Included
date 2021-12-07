@@ -17,8 +17,8 @@ public class SceneChange : MonoBehaviour
     void Start()
     {
 
-        elevatorMusic.Play();
-        BackgroundMusic.Play();
+        if(elevatorMusic != null) elevatorMusic.Play();
+        if(BackgroundMusic != null) BackgroundMusic.Play();
     }
 
     // Update is called once per frame

@@ -9,6 +9,7 @@ public class ButtonControl : MonoBehaviour
     public void PlayGame()
     {
         Debug.Log("Play Game");
+        Cursor.lockState = CursorLockMode.Confined;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
     }
 
