@@ -1589,6 +1589,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8fc8c3d0e0ff9b4089c4e346ac42ecc, type: 3}
+--- !u!1 &43831408 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1464971175361392364, guid: 3a59f0e66ae800e4ea0d616796a76ad6, type: 3}
+  m_PrefabInstance: {fileID: 1521722343}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &48285702
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8617,7 +8622,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 322581694}
-  m_LocalRotation: {x: 0.10868438, y: 0.00000001710941, z: -0.000000001869359, w: 0.9940763}
+  m_LocalRotation: {x: 0.10868438, y: -0.00000001710941, z: 0.000000001869359, w: 0.9940763}
   m_LocalPosition: {x: -3.147, y: 1.8263818, z: 10.0735035}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -23156,6 +23161,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 4134200932627511296, guid: beef683efd2a7c1439910bbfe9a15d6c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4257655892179354584, guid: beef683efd2a7c1439910bbfe9a15d6c, type: 3}
       propertyPath: m_Layer
       value: 30
@@ -23199,6 +23208,10 @@ PrefabInstance:
     - target: {fileID: 6604701849763726274, guid: beef683efd2a7c1439910bbfe9a15d6c, type: 3}
       propertyPath: m_Layer
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6604701849763726275, guid: beef683efd2a7c1439910bbfe9a15d6c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6604701849763726286, guid: beef683efd2a7c1439910bbfe9a15d6c, type: 3}
       propertyPath: m_RootOrder
@@ -41830,7 +41843,7 @@ PrefabInstance:
     - target: {fileID: 3432558752680620924, guid: 4cb16cc982d0463458a5c49212f427a5, type: 3}
       propertyPath: door5
       value: 
-      objectReference: {fileID: 1246148808}
+      objectReference: {fileID: 43831408}
     - target: {fileID: 3432558752680620924, guid: 4cb16cc982d0463458a5c49212f427a5, type: 3}
       propertyPath: door4_2
       value: 
@@ -47355,7 +47368,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1704189593}
-  m_LocalRotation: {x: 0.10868437, y: 0.000000017104457, z: -0.000000001870065, w: 0.9940763}
+  m_LocalRotation: {x: 0.10868437, y: -0.000000017104457, z: 0.000000001870065, w: 0.9940763}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
