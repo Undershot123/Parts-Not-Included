@@ -4947,7 +4947,7 @@ MonoBehaviour:
   armor: 10
   range: 7
   roboDeath: {fileID: 8300000, guid: 47e28c182dd9e1c4e8b5cf86f7a6111b, type: 3}
-  roboHitSound: {fileID: 0}
+  roboHitSound: {fileID: -232319597269242543}
   timer: 0
   enemyName: Bravo
 --- !u!114 &-3399432788356048001

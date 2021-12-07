@@ -20,7 +20,6 @@ public class HealthDamage : MonoBehaviour
 
     private ParticleSystem particle;
     ParticleSystem.EmissionModule em;
-    [SerializeField]
     private float timer = 0f;
     
     // Name of the enemy

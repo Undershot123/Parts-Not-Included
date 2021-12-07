@@ -105,8 +105,17 @@ public class ExtendingArms : MonoBehaviour
             fist.SetActive(true);
             MainCamera.SetActive(false);
             ArmCamera.SetActive(true);
-            if (Vector3.Distance(arm.transform.position, hit.point) < 0.00001f || timer > 5.0f)
+            if (Vector3.Distance(arm.transform.position, hit.point) < 0.00001f)
             {
+                if(timer > 3.0f)
+                {
+                    timer = 0f;
+                    movement.enabled = true;
+                    MainCamera.SetActive(true);
+                    ArmCamera.SetActive(false);
+                    fist.SetActive(false);
+                }
+                
                 hitSomething = false;
                 retracting = true;
                 startTime = Time.time;
@@ -116,6 +125,7 @@ public class ExtendingArms : MonoBehaviour
         }
         if (retracting)
         {
+            timer += Time.deltaTime;
             float currentDistance = (Time.time - startTime) * armSpeed;
             float fraction = currentDistance / distance;
             arm.transform.position = Vector3.Lerp(startPos, goalPos, fraction);
@@ -128,7 +138,7 @@ public class ExtendingArms : MonoBehaviour
                 Debug.Log("hit object " + hit.collider.gameObject.name);
                 hit.collider.gameObject.GetComponent<HealthDamage>().TakeDamage(25f);
             }
-            if (Vector3.Distance(arm.transform.position, goalPos) < 0.00001f || timer > 5.0f)
+            if (Vector3.Distance(arm.transform.position, goalPos) < 0.00001f || timer > 3.0f)
             {
                 timer = 0f;
                 movement.enabled = true;
