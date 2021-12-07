@@ -2581,7 +2581,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8048235893666612059, guid: f17e79ea55cbede478065f9ccd8ec18e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000017121597
+      value: -0.000000017121588
       objectReference: {fileID: 0}
     - target: {fileID: 8048235893666612059, guid: f17e79ea55cbede478065f9ccd8ec18e, type: 3}
       propertyPath: m_LocalRotation.z
@@ -11269,6 +11269,26 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6632927773459673404, guid: 68fe58d0692bd6a46ad7ce858ed6f84f, type: 3}
   m_PrefabInstance: {fileID: 609965793}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &609965796 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8728635321619667236, guid: 68fe58d0692bd6a46ad7ce858ed6f84f, type: 3}
+  m_PrefabInstance: {fileID: 609965793}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &609965797 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8381407649600229975, guid: 68fe58d0692bd6a46ad7ce858ed6f84f, type: 3}
+  m_PrefabInstance: {fileID: 609965793}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &609965798 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7595750597228870652, guid: 68fe58d0692bd6a46ad7ce858ed6f84f, type: 3}
+  m_PrefabInstance: {fileID: 609965793}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &609965799 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 276537039410262134, guid: 68fe58d0692bd6a46ad7ce858ed6f84f, type: 3}
+  m_PrefabInstance: {fileID: 609965793}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &611466690
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19479,11 +19499,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 897932006545501043, guid: 335f0a979ed780c44b3edffe59a546e9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000001711288
+      value: -0.000000017112873
       objectReference: {fileID: 0}
     - target: {fileID: 897932006545501043, guid: 335f0a979ed780c44b3edffe59a546e9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000001791354
+      value: 0.0000000017913533
       objectReference: {fileID: 0}
     - target: {fileID: 1578364589526271930, guid: 335f0a979ed780c44b3edffe59a546e9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19587,15 +19607,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3489375011030882046, guid: 335f0a979ed780c44b3edffe59a546e9, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.12218325
+      value: 0.12218327
       objectReference: {fileID: 0}
     - target: {fileID: 3489375011030882046, guid: 335f0a979ed780c44b3edffe59a546e9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00000001711209
+      value: 0.000000015987313
       objectReference: {fileID: 0}
     - target: {fileID: 3489375011030882046, guid: 335f0a979ed780c44b3edffe59a546e9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000002106594
+      value: -0.0000000019681283
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 335f0a979ed780c44b3edffe59a546e9, type: 3}
@@ -42110,6 +42130,22 @@ PrefabInstance:
       propertyPath: jump
       value: 
       objectReference: {fileID: 1175232414}
+    - target: {fileID: 3432558753095912622, guid: 4cb16cc982d0463458a5c49212f427a5, type: 3}
+      propertyPath: extTooltip
+      value: 
+      objectReference: {fileID: 609965799}
+    - target: {fileID: 3432558753095912622, guid: 4cb16cc982d0463458a5c49212f427a5, type: 3}
+      propertyPath: jumTooltip
+      value: 
+      objectReference: {fileID: 609965798}
+    - target: {fileID: 3432558753095912622, guid: 4cb16cc982d0463458a5c49212f427a5, type: 3}
+      propertyPath: speTooltip
+      value: 
+      objectReference: {fileID: 609965796}
+    - target: {fileID: 3432558753095912622, guid: 4cb16cc982d0463458a5c49212f427a5, type: 3}
+      propertyPath: strTooltip
+      value: 
+      objectReference: {fileID: 609965797}
     - target: {fileID: 5068073062104070037, guid: 4cb16cc982d0463458a5c49212f427a5, type: 3}
       propertyPath: m_WarningMessage
       value: 

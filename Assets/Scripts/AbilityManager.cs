@@ -13,6 +13,12 @@ public class AbilityManager : MonoBehaviour
 
     [SerializeField] private AudioSource speedLegsSound;
     [SerializeField] private AudioSource SuperJumpSound;
+
+    [SerializeField] private GameObject extTooltip;
+    [SerializeField] private GameObject strTooltip;
+    [SerializeField] private GameObject speTooltip;
+    [SerializeField] private GameObject jumTooltip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -81,13 +87,19 @@ public class AbilityManager : MonoBehaviour
             {
                 case 1:
                     Debug.Log("Strong Arms Equipped");
+                    strTooltip.SetActive(true);
+                    extTooltip.SetActive(false);
                     move.enabled = true;
                     break;
                 case 2:
                     Debug.Log("Extending Arms Equipped");
+                    strTooltip.SetActive(false);
+                    extTooltip.SetActive(true);
                     move.enabled = true;
                     break;
                 default:
+                    strTooltip.SetActive(false);
+                    extTooltip.SetActive(false);
                     break; //nothing happens
             }
         } else if (bodyPart == "legs")
@@ -96,17 +108,23 @@ public class AbilityManager : MonoBehaviour
             {
                 case 1:
                     Debug.Log("Speed Legs Equipped");
+                    speTooltip.SetActive(true);
+                    jumTooltip.SetActive(false);
                     move.changeMovementSpeed(8.0f);
                     jump.changeJumpHeight(1.5f);
                     speedLegsSound.Play();
                     break;
                 case 2:
                     Debug.Log("Super Jump Legs Equipped");
+                    speTooltip.SetActive(false);
+                    jumTooltip.SetActive(true);
                     jump.changeJumpHeight(3.0f);
                     move.changeMovementSpeed(4.0f);
                     SuperJumpSound.Play();
                     break;
                 default:
+                    speTooltip.SetActive(false);
+                    jumTooltip.SetActive(false);
                     break; //nothing happens
             }
         } else

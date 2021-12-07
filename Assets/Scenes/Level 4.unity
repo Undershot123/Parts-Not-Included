@@ -41901,6 +41901,22 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1448504643}
     - target: {fileID: 3432558753095912622, guid: 4cb16cc982d0463458a5c49212f427a5, type: 3}
+      propertyPath: extTooltip
+      value: 
+      objectReference: {fileID: 1889471716}
+    - target: {fileID: 3432558753095912622, guid: 4cb16cc982d0463458a5c49212f427a5, type: 3}
+      propertyPath: jumTooltip
+      value: 
+      objectReference: {fileID: 1889471713}
+    - target: {fileID: 3432558753095912622, guid: 4cb16cc982d0463458a5c49212f427a5, type: 3}
+      propertyPath: speTooltip
+      value: 
+      objectReference: {fileID: 1889471714}
+    - target: {fileID: 3432558753095912622, guid: 4cb16cc982d0463458a5c49212f427a5, type: 3}
+      propertyPath: strTooltip
+      value: 
+      objectReference: {fileID: 1889471715}
+    - target: {fileID: 3432558753095912622, guid: 4cb16cc982d0463458a5c49212f427a5, type: 3}
       propertyPath: SuperJumpSound
       value: 
       objectReference: {fileID: 785478783}
@@ -51797,6 +51813,26 @@ GameObject:
 --- !u!1 &1889471712 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8664779540042946365, guid: 68fe58d0692bd6a46ad7ce858ed6f84f, type: 3}
+  m_PrefabInstance: {fileID: 1889471709}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1889471713 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7595750597228870652, guid: 68fe58d0692bd6a46ad7ce858ed6f84f, type: 3}
+  m_PrefabInstance: {fileID: 1889471709}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1889471714 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8728635321619667236, guid: 68fe58d0692bd6a46ad7ce858ed6f84f, type: 3}
+  m_PrefabInstance: {fileID: 1889471709}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1889471715 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8381407649600229975, guid: 68fe58d0692bd6a46ad7ce858ed6f84f, type: 3}
+  m_PrefabInstance: {fileID: 1889471709}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1889471716 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 276537039410262134, guid: 68fe58d0692bd6a46ad7ce858ed6f84f, type: 3}
   m_PrefabInstance: {fileID: 1889471709}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1894194561
