@@ -7,8 +7,6 @@ public class TargetOpen : MonoBehaviour
 
     [SerializeField] private GameObject door;
 
-    [SerializeField] private AudioSource doorOpen; 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +23,6 @@ public class TargetOpen : MonoBehaviour
     {
         door.transform.position += new Vector3(0f, -10f, 0f);
         Debug.Log("moved " + door.name);
-        doorOpen.Play();
     }
 
 }
