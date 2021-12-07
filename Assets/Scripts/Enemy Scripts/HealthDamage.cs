@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
 /// <summary>
@@ -33,7 +32,7 @@ public class HealthDamage : MonoBehaviour
     void Start()
     {
         particle = this.transform.GetComponentInChildren<ParticleSystem>();
-        particle.Stop();
+        if(particle != null) particle.Stop();
     }
 
     // Update is called once per frame
@@ -55,23 +54,22 @@ public class HealthDamage : MonoBehaviour
         }
         else if (health <= 0f)
         {
-            AudioSource.PlayClipAtPoint(roboDeath, transform.position); // Plays Robot Death noise when dead
+            if(roboDeath != null) AudioSource.PlayClipAtPoint(roboDeath, transform.position); // Plays Robot Death noise when dead
 
             gameObject.SetActive(false);
         }
 
         if(timer > 2.0f)
         {
-            particle.Stop();
+            if(particle != null) particle.Stop();
             timer = 0f;
         }
     }
 
     private void OnCollisionEnter(Collision other) {
-        if(other.gameObject.tag == "Player") {
-            //Debug.Log("<color=red>Player is attacked by enemy " + enemyName + ", dealing " + attackDamage + " damage</color>");
+        if(other.gameObject.tag == "Player" && other.gameObject.GetComponentInChildren<HealthDamage>() != null) {
             other.gameObject.GetComponentInChildren<HealthDamage>().TakeDamage(attackDamage);
-            particle.Play();
+            if(particle != null) particle.Play();
             timer += Time.deltaTime;
         } else if(other.gameObject.GetComponent<HealthDamage>() != null) {
             TakeDamage(other.gameObject.GetComponent<HealthDamage>().attackDamage);
@@ -92,8 +90,8 @@ public class HealthDamage : MonoBehaviour
     /// </summary>
     /// <param name="damage"></param>
     public void TakeDamage(float damage) {
-        Debug.Log("<color=green>" + enemyName + " was attacked by the player, dealing " + damage + " damage</color>");
         health -= damage;
-        if(roboHitSound != null) roboHitSound.Play(); 
+        if(roboHitSound != null) roboHitSound.Play();
+        if(enemyName == "Player") GameObject.Find("HealthBar").GetComponent<HealthBar>().slider.value = health;
     }
 }
