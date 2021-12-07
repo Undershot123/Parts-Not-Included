@@ -119,12 +119,9 @@ public class Hacking : MonoBehaviour
                 case 4:
                     door4.transform.position += new Vector3(0f, -10f, 0f);
                     door4_2.transform.position += new Vector3(0f, -10f, 0f);
-                    if (SceneManager.GetActiveScene().buildIndex == 5 || SceneManager.GetActiveScene().buildIndex == 6)
-                    {
-                        door4_3.transform.position += new Vector3(0f, -10f, 0f);
-                    }
                     if (SceneManager.GetActiveScene().buildIndex == 5)
                     {
+                        door4_3.transform.position += new Vector3(0f, -10f, 0f);
                         door4_4.transform.position += new Vector3(0f, -10f, 0f);
                         door4_5.transform.position += new Vector3(0f, -10f, 0f);
                         door4_6.transform.position += new Vector3(0f, -10f, 0f);

@@ -19,16 +19,13 @@ public class SceneChange : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-<<<<<<< Updated upstream
 
         if(elevatorMusic != null) elevatorMusic.Play();
         if(BackgroundMusic != null) BackgroundMusic.Play();
-=======
         timer = 0f;
         endGame = false;
         elevatorMusic.Play();
         BackgroundMusic.Play();
->>>>>>> Stashed changes
     }
 
     // Update is called once per frame
