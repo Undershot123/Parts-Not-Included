@@ -40,9 +40,9 @@ public class SceneChange : MonoBehaviour
                     SceneManager.LoadScene("Level 3");
                     break;
                 case "Level 3":
-                    SceneManager.LoadScene("Level 5");
+                    SceneManager.LoadScene("Level 4");
                     break;
-                case "Level 5":
+                case "Level 4":
                    
                     endingTheme.Play();
                     BackgroundMusic.Stop();
