@@ -52,11 +52,12 @@ public class StrongArms : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider collision)
+    private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.layer == 30)
+        if (collision.gameObject.layer == 30 && collision.gameObject.tag != "Player")
         {
             collision.gameObject.GetComponent<HealthDamage>().TakeDamage(25f);
+            GameObject.Find("CollisionCylinder").GetComponent<HealthDamage>().health += 10f;
         }
     }
 
