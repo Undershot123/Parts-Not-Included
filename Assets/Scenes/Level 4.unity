@@ -2718,7 +2718,6 @@ MonoBehaviour:
   range: 0
   roboDeath: {fileID: 0}
   roboHitSound: {fileID: 0}
-  timer: 0
   enemyName: Player
 --- !u!54 &94773702
 Rigidbody:
@@ -41791,7 +41790,7 @@ PrefabInstance:
     - target: {fileID: 3432558752613807971, guid: 4cb16cc982d0463458a5c49212f427a5, type: 3}
       propertyPath: fist
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1796592443}
     - target: {fileID: 3432558752613807971, guid: 4cb16cc982d0463458a5c49212f427a5, type: 3}
       propertyPath: MainCamera
       value: 
@@ -41990,6 +41989,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1313031936, guid: 4cb16cc982d0463458a5c49212f427a5, type: 3}
+    - {fileID: 2121423317, guid: 4cb16cc982d0463458a5c49212f427a5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4cb16cc982d0463458a5c49212f427a5, type: 3}
 --- !u!4 &1539575042 stripped
 Transform:
@@ -49307,6 +49307,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dd02c12b2c21ff49aa148934b3c1395, type: 3}
+--- !u!1 &1796592443 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1022594515779976503, guid: 4cb16cc982d0463458a5c49212f427a5, type: 3}
+  m_PrefabInstance: {fileID: 1539575041}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1800446763
 PrefabInstance:
   m_ObjectHideFlags: 0
